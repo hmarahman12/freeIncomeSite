@@ -150,7 +150,7 @@ function register(){
       })
       .then(() => {
         // Data saved successfully!
-        window.location = '/login';
+        window.location = 'freeIncomeSite/login';
       })
       .catch((error) => {
         // The write failed...
