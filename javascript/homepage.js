@@ -463,7 +463,7 @@ auth.onAuthStateChanged(function(user){
         widrow();
     }else{
         console.log("No Active User ");
-        window.location = "/register";
+        window.location = "/freeIncomeSite/register";
     }
 })
 
