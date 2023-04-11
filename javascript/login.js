@@ -163,7 +163,7 @@ function valueEmtey(){
                     let userProfile = {name,email,photo}
                     console.log(userProfile);
                     sessionStorage.setItem('userProfile', JSON.stringify(userProfile));
-                    window.location = "earnig-site/index.html";
+                    window.location = "freeIncomeSite/index.html";
                 }
                 // ...
             }).catch((error) => {
