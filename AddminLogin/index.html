@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addmin Login</title>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+</head>
+<style>
+    .form {
+    width: 400px;
+    margin: 160px auto;
+    background: #33db865e;
+    border-radius: 3px;
+    padding: 30px 0;
+}
+.form span {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+}
+.form label {
+    display: flex;
+    padding: 12px 27px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+label input {
+    padding: 6px 13px;
+    outline: none;
+    border: 1px solid #a5a5a5;
+    border-radius: 3px;
+    font-size: 16px;
+}
+input#submit {
+    width: 86%;
+    margin: 31px;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #65d391;
+    border-radius: 3px;
+}
+
+input#submit:hover {
+    background: #6deb9f;
+    color: #fff;
+    transition: all ease 0.5s;
+}
+span.aleart {
+    background: #ffe7e7;
+    padding: 3px;
+    font-size: 18px;
+    color: red;
+    display: none;
+}
+
+a#newAccount,#Forgotpassword {
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    cursor: pointer;
+    color: #302f2f;
+}
+a#newAccount:hover ,#Forgotpassword:hover{
+    transition: all ease 0.5s;
+    text-decoration: underline;
+}
+#Forgotpassword:hover{
+    color: rgb(29, 105, 247);
+}
+.activ{
+    display: block !important;
+}
+.active{
+    display: block !important;
+    color: green !important;
+}
+.activeForgatePass{
+    display: none;
+}
+.or {
+    display: flex;
+    margin: 0 35px;
+    color: #585555;
+}
+.anather-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 28px 0 0 0;
+}
+img#Facebook,img#google,img#twitter {
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+img#twitter {
+    width: 40px;
+    border: 5px solid #fff;
+}
+img#Facebook {
+    width: 33px;
+    border: 9px solid #fff;
+}
+</style>
+<body>
+    <div class="form login">
+        <span>Addmin</span>
+        <span class="aleart"></span>
+        <label>UserName : <input id="uName" type="text" placeholder="Enter Your User Name" required></label>
+        <label>Email : <input id="email" type="email" placeholder="Enter Your Email" required></label>
+        <label>Password : <input id="password" type="password" placeholder="Enter Your Password" required></label>
+        <input id="submit" name="login" type="submit" value="Addmin">
+
+        <label> <a id="newAccount" href="/AddminSignup">Addmin-Request</a></label>
+
+        <!-- or anather account sin in -->
+        <div class="or">
+            ___________________ <span> OR </span> ___________________
+        </div>
+
+        <div class="anather-account">
+            <img id="Facebook" src="../pick/Facebook.png" alt="">
+            <img id="google" src="../pick/google.jpg" alt="">
+            <img id="twitter" src="../pick/twitter.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- <script src="/javascript/reffarel.js"></script> -->
+    <script src="../Addminjs/AddminLogin.js" type="module"></script>
+</body>
+</html>

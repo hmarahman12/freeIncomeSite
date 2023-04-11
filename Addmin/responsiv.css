@@ -1,0 +1,177 @@
+@media only screen and (max-width:1600px){
+
+    .min_icon{
+        opacity: 1 !important;
+        visibility: visible;
+    }
+    .background{
+        width: 70px;
+        transition: .5s;
+    }
+    .sub_background img{
+        opacity: 0;
+        transition: .5s;
+    }
+    .icon span{
+        opacity: 0;
+        visibility: hidden;
+    }
+    .icon i{
+        position: absolute;
+        right: 5px;
+    }
+    .icon:hover{
+        background: transparent;
+        color: rgb(109,107,107);
+    }
+    
+    
+    /**js**/
+    .backgrounddd{
+        width: 300px !important;
+    }
+    
+    .backgroundimg{
+        opacity: 1 !important;
+    }
+    .backgroundspan{
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .backgroundi{
+        position: static !important;
+    }
+    .backgroundicon:hover{
+        background: #1ea8ea;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .box-js{
+        width: 70%;
+        transition: .5s;
+    }
+    /**js**/
+    
+}
+
+@media only screen and (min-width:1300px) and (max-width:1490px) {
+    
+    .box{
+        width: 80%;
+        transition: .5s;
+    }
+    .dash-boardjs{
+        width: 1000px !important;
+        transition: .5s;
+    }
+
+}
+
+
+@media only screen and (min-width:1000px) and (max-width:1300px) {
+    
+    .box{
+        width: 70%;
+        transition: .5s;
+    }
+    .sid_bur {
+        position: fixed;
+        z-index: 9999;
+    }
+    .dashBoard {
+        width: 900px !important;
+        transition: .5s;
+        margin-left: 70px;
+    }
+    .all-customer{
+        width: 30%;
+    }
+    #all-customer{
+        width: 58%;
+    }
+
+}
+
+@media only screen and (min-width:700px) and (max-width:1000px){
+    .income {
+        flex-direction: column;
+    }
+    .income-box {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .chart-box {
+        width: 100%;
+    }    
+    .box{
+        width: 100%;
+        transition: .5s;
+    }
+    .top-customer {
+        flex-direction: column;
+    }
+
+    .sid_bur {
+        position: fixed;
+        z-index: 9999;
+    }
+    .dashBoard {
+        width: 900px !important;
+        transition: .5s;
+        margin-left: 70px;
+    }
+    .all-customer {
+    width: 95% !important;
+    margin: 30px 0;
+    }
+}
+
+@media only screen and (min-width:400px) and (max-width:700px){
+    .income {
+        flex-direction: column;
+    }
+    .income-box {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 50px;
+        flex-direction: column;
+    }
+    .icon-flex {
+        width: 100%;
+        height: 370px;
+        display: grid;
+        align-content: space-around;
+    }
+    .sub-box {
+        max-width: 90%;
+    }
+    .chart-box {
+        width: 70%;
+    }    
+    .box{
+        width: 65%;
+        transition: .5s;
+    }
+    .top-customer {
+        flex-direction: column;
+    }
+
+    .sid_bur {
+        position: fixed;
+        z-index: 9999;
+    }
+    .dashBoard {
+        width: 900px !important;
+        transition: .5s;
+        margin-left: 70px;
+    }
+    .all-customer {
+    width: 65% !important;
+    margin: 30px 0;
+    }
+
+    .name{
+        width: 70%;
+    }
+}

@@ -1,0 +1,184 @@
+@media only screen and (max-width:1000px){
+    .menu {
+        margin-left: 0;
+    }
+    .profile {
+        margin-right: 0;
+    }
+    form{
+        margin: 0 auto;
+    }
+    .profile-button input {
+        width: 20%;
+    }
+    .from-widrow form{
+        width: 74%;
+        margin: auto;
+    }
+    .history {
+        width: 75%;
+        margin: auto;
+    }
+    .hstProfile{
+        margin-left: -6px;
+    }
+    .name-email{
+        display: none;
+    }
+    .date,.time{
+        margin: 0;
+    }
+
+}
+
+@media only screen and (max-width:700px){
+    nav {
+        width: 95%;
+    }
+    .menu {
+        margin-left: 0;
+    }
+    .profile {
+        margin-right: 0;
+    }
+
+    .container {
+        width: 700px;
+        margin: 0;
+    }
+    .from-widrow form {
+        margin: 0 19px;
+        width: 71%;
+    }
+    .history {
+        margin: 0 17px;
+        width: 65%;
+    }
+}
+
+@media only screen and (max-width:500px){
+    nav {
+        width: 75%;
+    }
+    .menu{
+        display: none;
+    }
+    .menu, .profile{
+        width: 75%;
+        justify-content:space-around;
+    }
+    .container {
+        width: 50%;
+        margin: 0;
+    }
+    form{
+        width: 60%;
+        margin: 0 35px;
+    }
+    .from-Affilate form{
+        margin: 0 10px;
+    }
+    .profile-button input {
+        width: 20%;
+    }
+    .from-widrow form {
+        margin: 0 19px;
+        width: 55%;
+    }
+    .history {
+        margin: 0 17px;
+        width: 48%;
+    }
+    footer {
+        flex-wrap: wrap;
+    }
+    .social-links,span.All-rights {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+@media only screen and (max-width:400px){
+    .menu{
+        display: none;
+    }
+    form{
+        width: 56%;
+        margin: 0 5px;
+    }
+    .profile-viw {
+        width: 268px;
+        height: 305px;
+        right: 2px;
+        top: 95px;
+    }
+    .profile-button input {
+        width: 20%;
+    }
+    .from-widrow form {
+        margin: 0 19px;
+        width: 45%;
+    }
+    .from-Affilate form{
+        margin: 0 10px;
+    }
+    .history {
+        margin: 0 22px;
+        width: 40%;
+    }
+}
+@media only screen and (max-width:350px){
+    .menu{
+        display: none;
+    }
+    form{
+        width: 48%;
+        margin: 0 7px;
+    }
+    span.Refarel{
+        font-size: 17px;
+    }
+    .profile-button input {
+        width: 20%;
+    }
+    form input{
+        margin: 0;
+    }
+    .profile-viw {
+        width: 268px;
+        height: 305px;
+        right: 2px;
+        top: 95px;
+    }
+    .from-widrow form {
+        margin: 0 19px;
+        width: 39%;
+    }
+    .history {
+        margin: 0 0px;
+        width: 43%;
+    }
+    .from-Affilate form{
+        margin: 0 -100px;
+        padding: 20px 39px;
+    }
+}
+@media only screen and (max-width:300px){
+    .menu{
+        display: none;
+    }
+    .profile-viw {
+        width: 268px;
+        height: 305px;
+        right: 2px;
+        top: 95px;
+    }
+    .from-widrow form {
+        margin: 0 19px;
+        width: 30%;
+    }
+    .history {
+        margin: 0 0px;
+        width: 38%;
+    }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earning Site</title>
+</head>
+<style>
+    form {
+    width: 400px;
+    margin: 80px auto;
+    background: #33db865e;
+    border-radius: 3px;
+    padding: 30px 0;
+}
+form span {
+    display: block;
+    text-align: center;
+    font-size: 22px;
+}
+form label {
+    display: flex;
+    padding: 12px 27px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+label input {
+    padding: 6px 24px;
+    outline: none;
+    border: 1px solid #a5a5a5;
+    border-radius: 3px;
+    font-size: 16px;
+}
+img#select-img {
+    width: 150px;
+    cursor: pointer;
+}
+input#submit {
+    width: 86%;
+    margin: 31px;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #65d391;
+    border-radius: 3px;
+}
+
+input#submit:hover {
+    background: #6deb9f;
+    color: #fff;
+    transition: all ease 0.5s;
+}
+span.aleart {
+    background: #ffe7e7;
+    padding: 3px;
+    font-size: 18px;
+    color: red;
+    display: none;
+}
+
+a#already-acccount {
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    color: #302f2f;
+}
+a#already-acccount:hover {
+    transition: all ease 0.5s;
+    text-decoration: underline;
+}
+.activ{
+    display: block !important;
+}
+.active{
+    display: block !important;
+    color: green !important;
+}
+</style>
+<body>
+    <form>
+        <span>SignUp</span>
+        <span class="aleart"></span>
+        <label>User Name : <input id="uname" type="text" placeholder="Enter Your User Name" required></label>
+        <label>Full Name : <input id="name" type="text" placeholder="Enter Your Name" required></label>
+        <label>Email : <input id="email" type="email" placeholder="Enter Your Email" required></label>
+        <label>Phone : <input id="number" type="number" placeholder="Enter Your Phone Number" required></label>
+        <label>Password : <input id="password" type="password" placeholder="Enter Password" required></label>
+        <label>Choose Img : <input id="input-img" type="file"required hidden> <img id="select-img" src="/pick/profile.png" alt=""></label>
+        <label>Refarel Code : <input id="refarel" type="text" placeholder="Promo Code Optional"></label>
+        <input type="text" id="reffarelCode" hidden>
+        <input id="submit"type="submit" name="submit" value="Sin-Up">
+        <label> <a id="already-acccount" href="/login">Already Have An Account?</a></label>
+    </form>
+
+    <script src="../javascript/reffarel.js"></script>
+    <script src="../javascript/sinup.js" type="module"></script>
+</body>
+</html>

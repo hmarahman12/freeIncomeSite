@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addmin Pannel</title>
+    <link rel="shortcut icon" href="https://e7.pngegg.com/pngimages/222/601/png-clipart-circle-brand-logo-circle-text-logo.png">
+    <script src="https://kit.fontawesome.com/c11beddfd2.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Addmin/allusers.css">
+    <link rel="stylesheet" href="responsiv.css">
+</head>
+<body>
+    <div class="min-background">
+        <div class="sid_bur">
+            <div class="background">
+                <div class="sub_background">
+                    <div class="min_icon">
+                        <i class="fas fa-align-justify"></i>
+                    </div>
+                    <img id="AddminProfile" src='./0.png'alt="">
+                    <div class="icon-background">
+                        <div class="icon">
+                            <i class="fas fa-house-damage"></i>
+                            <span class="name_span">Dashboard</span>
+                        </div>
+                        <div class="icon">
+                            <i class="far fa-address-book"></i>
+                            <span class="name_span">Customers</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fab fa-r-project"></i>
+                            <span class="name_span">Products</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-cart-plus"></i>
+                            <span class="name_span">Orders</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="name_span">Analytics</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-compact-disc"></i>
+                            <span class="name_span">Catagories</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fab fa-cc-discover"></i>
+                            <span class="name_span">Discount</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-seedling"></i>
+                            <span class="name_span">Inventary</span>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-cog"></i>
+                            <span class="name_span">settings</span>
+                        </div>
+                        <div class="icon" id="addminLoguot">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="name_span">Addmin LogUot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashBoard">
+            <div class="min-profile icon-profile">
+                <div class="min-search">
+                    <div class="icon-search">
+                        <input type="text" placeholder="Search">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="dash">
+                        <span>Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="profile">
+                    <div class="profile_edit">
+                        <img src="./t.png" id="img" alt="">
+                        <span id="dysplyName"></span>
+                    </div>
+
+                    <i class="far fa-bell"></i>
+                </div>
+            </div>
+
+            <div class="income">
+                <div class="income-box">
+                    <div class="icon-flex">
+
+                        <div class="sub-box">
+                           <div class="box">
+                            <i class="fas fa-users"></i>
+                                <div class="total">
+                                    <b class="totalUsers"></b>
+                                    <span>All Users</span>
+                                </div>
+                           </div>
+                        </div>
+
+                        <div class="sub-box">
+                            <div class="box">
+                                <i class="fab fa-usps"></i>
+                                 <div class="total">
+                                    <span class="admin-request-bell">
+                                        <i class="far fa-bell"></i>
+                                        <p id="admin-request-notifi">1</p>
+                                    </span>
+                                     <b class="admin-request">Admin Request</b>
+                                     <b class="Alladmin-request">Admin Request</b>
+                                 </div>
+                            </div>
+                         </div>
+
+                    </div>
+
+                    <div class="icon-flex">
+
+                        <div class="sub-box">
+                            <div class="box">
+                                <i class="fas fa-user-check"></i>
+                                 <div class="total">
+                                     <b class="userActive"></b>
+                                     <span>Users Active</span>
+                                 </div>
+                            </div>
+                         </div>
+
+                         <div class="sub-box">
+                            <div class="box">
+                                <i class="fas fa-dollar-sign"></i>
+                                 <div class="total">
+                                     <b class="widthrow"></b>
+                                     <span>Total Widthrow</span>
+                                 </div>
+                            </div>
+                         </div>
+
+                    </div>
+
+                    <div class="icon-flex">
+
+                        <div class="sub-box">
+                            <div class="box">
+                                <i class="fas fa-users-cog"></i>
+                                 <div class="total">
+                                     <b id="allAddmin"></b>
+                                     <span>All Addmin</span>
+                                 </div>
+                            </div>
+                         </div>
+
+                         <div class="sub-box">
+                            <div class="box">
+                                <i class="fas fa-user-tie"></i>
+                                 <div class="total">
+                                     <b id="AddminActive"></b>
+                                     <span>Addmin Active</span>
+                                 </div>
+                            </div>
+                         </div>
+
+                    </div>
+                </div>
+
+                <!-- allUser show -->
+                <div class="allUsers">
+                    
+                </div>
+
+                <div class="chart-box">
+                    <div class="category_chart"></div>
+                </div>
+            </div>
+
+            <div class="top-customer-latestorder">
+                <div class="top-customer">
+                    <div class="all-customer" id="all-customer">
+                        <div class="latest-order">
+                            <span>Widthrow Paid</span>
+
+                            <div class="customer-ditels">
+
+                                <div class="name chang head" id="name">
+                                    <span class="sL">SL.</span>
+                                    <span class="username">User</span>
+                                    <span class="date">Date</span>
+                                    <span class="amount">Amount</span>
+                                    <span class="status h">Status</span>
+                                </div>
+
+                                <div class="addmin-withrow-ditels">
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                    <div class="name chang" id="name">
+                                        <span class="sL">#001771</span>
+                                        <span class="username">John</span>
+                                        <span class="date"> 9 sep 2021</span>
+                                        <span class="amount d">10000 TK</span>
+                                        <div class="button">
+                                            <input type="button" class="paid" value="Paid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="all-customer" id="all-customer">
+                        <div class="latest-order">
+                            <span>Widthrow List</span>
+
+                            <div class="customer-ditels">
+
+                                <div class="name chang head" id="name">
+                                    <span class="sL">SL.</span>
+                                    <span class="username">User</span>
+                                    <span class="date">Date</span>
+                                    <span class="amount hh">Amount</span>
+                                    <span class="status h">Status</span>
+                                </div>
+
+                                <div class="addmin-withrow-ditels" id="addmin-withrow-ditels">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="app.js"></script>
+    <script src="../Addminjs/addmin.js"></script>
+</body>
+</html>

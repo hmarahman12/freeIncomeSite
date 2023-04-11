@@ -1,0 +1,413 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*****nav******/
+nav {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+.menu ,.profile{
+    margin: 13px 0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.menu{
+    margin-left: -52px;
+}
+.profile{
+    margin-right: -30px;
+}
+.menu span,.userName {
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/** widrow-min show and hide*/
+.active,.profile-viw.active{
+    display: block !important;
+}
+
+span.Widrow-now,span.history-now{
+    position: relative;
+}
+
+.profile-viw {
+    width: 169px;
+    height: 900px;
+    position: absolute;
+    right: 14px;
+    top: 135px;
+    z-index: 9999;
+    background: #fff;
+    padding: 14px;
+    border-radius: 3px;
+    display: none;
+    box-shadow: 0px 8px 18px -1px black;
+}
+.home2 span a,span.Affilate-now.Affilate2,.about a,.earne a,span.Widrow-now,span.history-now,.Signout,.profile-ditels,.mode{
+    display: block;
+    cursor: pointer;
+    color: #000;
+    background: #f7f7f7;
+    margin-bottom: 7px;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+}
+.profile-viw i {
+    margin-right: 10px;
+}
+.from-Affilate{
+    height: 160px !important;
+    margin: 50px 0;
+}
+/******widrow history**********/
+.history {
+    height: 554px !important;
+    cursor: default;
+    overflow-x: hidden;
+    background: #fff;
+    padding: 14px;
+    border-radius: 3px;
+    box-shadow: 0px 8px 18px -1px black;
+}
+.history::-webkit-scrollbar{
+    width: 0;
+}
+.history.active:hover ,span.history-now:hover .history.active{
+    background: #fff;
+    color: black;
+}
+/******from**********/
+form {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+span.Refarel,span.Affilate-Acount{
+    width: 145px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 0 auto;
+    align-content: stretch;
+}
+span.Affilate-Acount,.Refarel,a{
+    font-size: 20px;
+    color: black !important;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+form span {
+    width: 100%;
+    height: 17px;
+    font-size: 13px;
+    margin: 7px 0;
+    cursor: text !important;
+    background: rgba(0, 0, 0, 0) !important;
+    color: red !important;
+    border: none !important;
+}
+
+form input {
+    width: 100%;
+    height: 25px;
+    margin: 7px 0;
+    outline: none;
+    border: 1px solid #2ec72e;
+    border-radius: 3px;
+    padding-left: 7px;
+}
+span.checkboxed {
+    width: 100%;
+    display: flex;
+    color: black !important;
+    align-items: center;
+    background: rgba(0, 0, 0, 0) !important;
+    border: 1px solid #1ac31a !important;
+    justify-content: center;
+    font-size: 14px;
+    text-align: center;
+}
+input.widrow-submit {
+    width: 100%;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+.chack {
+    position: absolute;
+    background: #ff000000;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+input.widrow-submit:hover {
+    background: green;
+    color: #fff;
+    transition:  all ease 0.5s;
+    border-color: green;
+}
+.menu a ,span.Affilate-now{
+    color: black;
+    text-decoration: none;
+}
+.menu span:hover,.menu a:hover,a.home:hover {
+    background: #000;
+    color: #fff !important;
+    transition: all ease 0.5s;
+}
+.balance {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+    cursor: default;
+}
+.profile-pick ,.hstProfile{
+    cursor: pointer;
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.profile-pick img,img#img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50%;
+    box-shadow: 1px 0px 18px -4px;
+}
+img#img {
+    width: 60px;
+}
+.hstProfile {
+    display: flex;
+    align-items: center;
+    width: 97%;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 8px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-email {
+    margin-left: 5px;
+}
+.img-name-email {
+    display: flex;
+    align-items: center;
+}
+
+.amount-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.amount {
+    margin-left: 60px;
+    font-size: 20px;
+}
+.widrowButton {
+    margin-left: 40px;
+}
+
+.widrowButton {
+    text-align: center;
+    padding: 4px;
+    border-radius: 3px;
+    background: rgb(245, 178, 35);
+    color: rgb(255, 255, 255);
+}
+div#Paid {background: #42c142;}
+
+div#Rejected {
+    background: #ff4040;
+}
+
+button#pendding,button#paid {
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px solid #3c3b3bb5;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.time {
+    margin-left: 76px;
+    margin-top: -15px;
+}
+
+.date {
+    margin-left: 75px;
+    margin-top: 15px;
+}
+span.\.userActive {
+    width: 10px;
+    height: 10px;
+    background: #0dd767;
+    position: absolute;
+    top: 36px;
+    left: 28px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.minimum.active,.refarel.active,.refarel-link.active,.alaert.active{
+    color: #60e560 !important;
+}
+.chack.active {
+    display: none !important;
+}
+.aleart{
+    display: none;
+}
+span.alaert {
+    font-size: 18px;
+}
+/***iframe****/
+
+.container{
+    width: 1500px;
+    margin: auto;
+}
+iframe {
+    width: 90%;
+    height: 800px;
+    margin-right: 47px;
+}
+.slider {
+    text-align: center;
+    position: relative;
+}
+.button {
+    display: flex;
+    /* width: 704px; */
+    margin: 0 253px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn{
+    border: none;
+    outline: none;
+    background: #888;
+    padding: 10px 30px;
+    font-size: 12px;
+    user-select: none;
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px 45px;
+    border-radius: 5px;
+}
+
+.btn:hover{
+    background: rgb(17, 16, 16);
+    transition: all ease .5s;
+    color: aliceblue;
+}
+
+/******aboute********/
+.aboute-heade {
+    margin-top: 85px;
+    font-size: 40px;
+    font-family: fantasy;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.aoute {
+    width: 73%;
+    margin: auto;
+    margin-bottom: 40px;
+}
+span.description {
+    font-size: 20px;
+}
+
+/****fotter**/
+
+footer {
+    background: #438b70;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 16% 5px 13%;
+}
+span.All-rights {
+    color: #fff;
+    font-size: 18px;
+}
+a img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+/****recponcive****/
+
+@media (max-width: 1149px) {
+    .container {
+        width: 900px;
+    }
+    .button {
+        margin: 0 187px;
+    }
+}
+
+@media (max-width: 899px){
+    .container {
+        width: 550px;
+    }
+    .slider {
+        text-align: left;
+    }
+    .button {
+        margin: 0 7px;
+    }
+    
+}
+
+@media (max-width: 549px){
+    .container {
+        width: 400px;
+    }
+    .slider {
+        text-align: left;
+    }
+    .button {
+        margin: 0;
+    }
+    
+}
+
+@media (max-width: 499px){
+    .container {
+        width: 350px;
+        margin: 0;
+    }
+    .slider {
+        text-align: left;
+    }
+    .btn {
+        padding: 5px 20px;
+        margin: 15px;
+        font-size: 12px;
+    }
+    
+}
