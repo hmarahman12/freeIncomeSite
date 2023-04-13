@@ -1270,6 +1270,13 @@ function Minutes(){
         }
     },1000)
 }
+incomeLink_7AM()
+incomeLink_8AM()
+incomeLink_4PM()
+incomeLink_5PM()
+incomeLink_8PM()
+all_income_box1_12()
+Minutes()
 
     if((hour === 1 & ampm == 'AM')){
         incomeLink_7AM()
