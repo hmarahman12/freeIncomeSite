@@ -66,7 +66,6 @@ function valueEmtey(){
                 var user_ref = db.ref('users/' + username)
                 user_ref.on('value', function(snapshot){
                     var user = snapshot.val();
-                    console.log(user);
                     //check password
                     if(passValue === user.password && emailValue === user.email){
                         localStorage.setItem('User Logdin', "True");
@@ -137,63 +136,79 @@ function valueEmtey(){
 //-----------------------gmail popUp funktion-----------------------//
 
       
-        // Initialize Firebase
-        const provider = new firebase.auth.GoogleAuthProvider();
+        // // Initialize Firebase
+        // const provider = new firebase.auth.GoogleAuthProvider();
       
       
       
-        document.querySelector("#google").addEventListener('click', function(e){
-        //   signInWithRedirect(auth, provider);
+        // document.querySelector("#google").addEventListener('click', function(e){
+        // //   signInWithRedirect(auth, provider);
       
       
-        firebase.auth().signInWithPopup(provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var credential = result.credential;
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
+        // firebase.auth().signInWithPopup(provider)
+        //     .then((result) => {
+        //         // This gives you a Google Access Token. You can use it to access the Google API.
+        //         var credential = result.credential;
+        //         const token = credential.accessToken;
+        //         // The signed-in user info.
+        //         const user = result.user;
 
                 
-                if(user){
-                    // alert(user.displayName);
-                    let name = user.displayName;
-                    let email = user.email;
-                    let photo = user.photoURL;
-                    let userProfile = {name,email,photo}
-                    console.log(userProfile);
-                    sessionStorage.setItem('userProfile', JSON.stringify(userProfile));
-                    window.location = "freeIncomeSite/index.html";
-                }
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.email;
-                // The AuthCredential type that was used.
-                // const credential = GoogleAuthProvider.credentialFromError(error);
-                var credential = error.credential;
-                // ...
-                alert(errorMessage);
-            });
-        })
+        //         if(user){
+        //             // alert(user.displayName);
+        //             let name = user.displayName;
+        //             let email = user.email;
+        //             let photo = user.photoURL;
+        //             let userProfile = {name,email,photo}
+        //             // console.log(userProfile);
+        //             sessionStorage.setItem('userProfile', JSON.stringify(userProfile));
+        //             window.location = "earnig-site/index.html";
+        //         }
+        //         // ...
+        //     }).catch((error) => {
+        //         // Handle Errors here.
+        //         const errorCode = error.code;
+        //         const errorMessage = error.message;
+        //         // The email of the user's account used.
+        //         const email = error.email;
+        //         // The AuthCredential type that was used.
+        //         // const credential = GoogleAuthProvider.credentialFromError(error);
+        //         var credential = error.credential;
+        //         // ...
+        //         alert(errorMessage);
+        //     });
+        // })
 
 
 
 
 ////forgate password
-let loginform = document.querySelector(".form.login");
-let forgateform = document.querySelector(".form.Forgotpassword");
+function forgatepass(){
+    let loginform = document.querySelector(".form.login");
+    let forgateform = document.querySelector(".form.Forgotpassword");
 
-document.querySelector("a#Forgotpassword").addEventListener('click', function(){
-        console.log("forgate password1");
+    document.querySelector("a#Forgotpassword").addEventListener('click', function(){
         loginform.classList.add("activeForgatePass");
         forgateform.classList.add("active");
     });
-document.querySelector("a.login").addEventListener('click', function(){
+    document.querySelector("a.login").addEventListener('click', function(){
         console.log("forgate password2");
         loginform.classList.remove("activeForgatePass");
         forgateform.classList.remove("active");
     });
+
+
+
+    let forgateUname = document.querySelector('input#forgateuName');
+    let forgatePass = document.querySelector('input#forgatepassword');
+    let forgateSubmit = document.querySelector('input.forgate');
+
+    forgateSubmit.addEventListener('click', function(){
+        let forgateUnameValue = forgateUname.value;
+        var user_forgate_pass = db.ref('users/' + forgateUnameValue)
+        user_forgate_pass.on('value', function(snapshot){
+            var forgatePassWord = snapshot.val();
+            forgatePass.value = forgatePassWord.password;
+        })
+    })
+}forgatepass()
