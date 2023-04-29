@@ -4,461 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earning Site</title>
+    <title>Easy Earning</title>
     <script src="https://kit.fontawesome.com/c11beddfd2.js" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
 
-    <style>
-    body::-webkit-scrollbar{
-        width: 0;
-    }
-    form {
-        margin: 80px auto;
-        background: #7df1b75e;
-        border-radius: 3px;
-        padding: 30px 0;
-    }
-    form span {
-        display: block;
-        text-align: center;
-        font-size: 22px;
-    }
-    form label {
-        display: flex;
-        padding: 12px 27px;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 16px;
-    }
-    label input {
-        padding: 6px 24px;
-        outline: none;
-        border: 1px solid #a5a5a5;
-        border-radius: 3px;
-        font-size: 16px;
-    }
-    img#select-img {
-        width: 150px;
-        cursor: pointer;
-    }
-    input#submit {
-        width: 86%;
-        margin: 31px;
-        padding: 5px;
-        font-size: 18px;
-        cursor: pointer;
-        outline: none;
-        border: 1px solid #65d391;
-        border-radius: 3px;
-    }
-    
-    input#submit:hover {
-        background: #6deb9f;
-        color: #fff;
-        transition: all ease 0.5s;
-    }
-    span.aleart {
-        background: #ffe7e7;
-        padding: 3px;
-        font-size: 18px;
-        color: red;
-        display: none;
-    }
-    .disply-none{
-        display: none !important;
-    }
-    /*******profile vew***********/
-    input#reffarelCode {
-        margin: 0 25px;
-    }
-    .profile-button {
-        margin: 0 14px;
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-    }
-    .profile-button input {
-        width: 10%;
-        margin: 12px;
-        padding: 0 10px;
-        cursor: pointer;
-    }
-    input#Update:hover {
-        background: green;
-        color: #fff;
-        transition: all ease 0.5s;
-    }
-    input#cancel:hover {
-        background: red;
-        color: #fff;
-        transition: all ease 0.5s;
-    }
 
-    /********* post profile *********/
-    .post {
-        width: 90%;
-        margin: auto;
-    }
-    i#post-cancel {
-        font-size: 20px;
-        position: absolute;
-        right: 20px;
-        top: 12px;
-        cursor: pointer;
-    }
-    i#post-cancel:hover{
-        transition: all ease 0.5s;
-        color: red;
-    }
-
-    .postAleart {
-        background: #ffd9d9;
-        text-align: center;
-        margin: -1px auto;
-        color: red;
-        display: none;
-    }
-    .postActive{
-        background: rgb(234 255 234);
-        color: green;
-    }
-    .postItems {
-        height: 760px;
-        background: #ededed;
-        border-radius: 3px;
-        position: relative;
-        padding: 20px;
-    }
-    .side-post {
-        margin: auto;
-        text-align: center;
-        font-size: 20px;
-        font-family: 'Montserrat';
-        color: #262626;
-    }
-
-    .postTitle input {
-        position: absolute;
-        top: 60px;
-        width: 93%;
-        height: 30px;
-        padding: 0 10px;
-        font-size: 18px;
-        color: rgb(54, 54, 54);
-        outline: none;
-        border: 1px solid #dbdbdb;
-        border-radius: 3px;
-    }
-    .postImg img {
-        width: 95% !important;
-        height: 420px;
-        position: absolute;
-        top: 110px;
-        left: 20px;
-        border: 1px solid #d5d5d5;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    textarea.postDec {
-        position: absolute;
-        bottom: 125px;
-        width: 94%;
-        height: 111px;
-        border: 1px solid #8d8d8d;
-        outline: none;
-        border-radius: 3px;
-        color: #222;
-        padding: 5px;
-    }
-    .select-worker {
-        display: flex;
-        width: 98%;
-        justify-content: space-between;
-        position: relative;
-        margin: 647px 0 0 0;
-    }
-    .select-worker input {
-        position: relative;
-        outline: none;
-        border: 1px solid #000;
-        border-radius: 3px;
-        width: 50px;
-        text-align: center;
-        padding: 4px;
-        cursor: pointer;
-    }
-    .select-worker input:hover{
-        transition: all ease 0.5s;
-        background: green;
-        color: #fff;
-        border:1px solid #8d8d8d;
-    }
-    .workerBg{
-        transition: all ease 0.5s;
-        background: green;
-        color: #fff;
-        border:1px solid #8d8d8d;
-    }
-    input#post {
-        position: absolute;
-        width: 95%;
-        bottom: 30px;
-        padding: 5px 0;
-        outline: none;
-        border: 1px solid #37a3ff;
-        border-radius: 3px;
-        font-size: 18px;
-        box-shadow: -4px 2px 16px -5px #37a3ff;
-        cursor: pointer;
-    }
-
-
-    /***my job post****/
-    .myJobpost {
-        background: #e1e1e1;
-        position: relative;
-        height: 680px;
-        overflow: auto;
-    }
-    .myJobpost::-webkit-scrollbar{
-        width: 0;
-    }
-    .postTitle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    span.jobWorker {
-        font-size: 20px;
-        border: 1px solid #ff5454;
-        border-radius: 5px;
-        padding: 7px;
-        color: red;
-    }
-    span.jobWorkerDew {
-        font-size: 20px;
-        border: 1px solid #37a713;
-        color: green;
-        border-radius: 5px;
-        padding: 7px;
-    }
-    .JobPost-date-time {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .mypostItems {
-        margin: 10px 0;
-    }
-    .my-job-post {
-        margin: auto;
-        text-align: center;
-        padding: 12px 0;
-        font-size: 20px;
-        font-family: monospace;
-    }
-    .mypostItems {
-        background: #b8bdbd;
-        padding: 15px 26px;
-    }
-    span.jobTitle {
-        font-size: 20px;
-        font-family: cursive;
-    }
-    img#jobImg {
-        margin: 11px 0;
-        width: 100%;
-        height: 455px;
-        border-radius: 2px;
-    }
-    span.my-job-desc {
-        font-size: 18px;
-        font-family: cursive;
-        word-wrap: break-word;
-    }
-    input#dilete {
-        width: 100%;
-        outline: none;
-        background: #ff5454;
-        border: 1px solid #000;
-        border-radius: 2px;
-        padding: 6px;
-        color: #fff;
-        margin: 5px 0;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-        /***post Content****/
-        .allPostShow {
-            max-height: 700px;
-            overflow: auto;
-        }
-        .allPostShow::-webkit-scrollbar{
-            width: 0;
-        }
-        .postShow {
-            background: #f7f7f7;
-            padding: 10px;
-            border-radius: 3px;
-            margin: 30px 15px;
-        }
-
-        .postShowProfile {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .postShowImgName {
-            width: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .postShowImg img {
-            width: 65px;
-            height: 65px;
-            border: 1px solid red;
-            border-radius: 50%;
-        }
-        .titleName {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-left: 10px;
-            justify-content: space-between;
-            height: 60px;
-        }
-
-        .postName ,.title{
-            font-size: 20px;
-            font-family: sans-serif;
-        }
-        .postShowWorker {
-            width: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .workerDone {
-            font-size: 20px;
-            font-family: cursive;
-            color: green;
-            border: 1px solid green;
-            border-radius: 50%;
-            padding: 5px;
-        }
-
-        .workerDeu {
-            font-size: 20px;
-            font-family: cursive;
-            color: red;
-            border: 1px solid red;
-            border-radius: 50%;
-            padding: 5px;
-        }
-        .postTimeDate {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .postTime ,.postDate{
-            font-size: 18px;
-            font-family: monospace;
-        }
-        .postContent {
-            width: 250px;
-        }
-        .postContent img {
-            height: 90px;
-            width: 100%;
-        }
-        .postShwoDescription {
-        font-size: 18px;
-        font-family: cursive;
-        word-wrap: break-word;
-    }
-    /***notifi**/
-.userNotifi {
-    position: relative;
-    cursor: pointer;
-}
-.notifiCount {
-    font-size: 12px;
-    background: red;
-    color: #fff;
-    padding: 3px;
-    border-radius: 50%;
-    position: absolute;
-    top: -8px;
-    left: 10px;
-}
-.notifiCount.active{
-    display: none;
-}
-
-    </style>
-    <link rel="icon" type="image/x-icon" href="./pick/doller.png">
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="./CSS/them.css">
-    <link rel="stylesheet" href="./CSS/recponcive.css">
+    <link rel="icon" type="image/x-icon" href="./pick/icone.png">
     <link rel="stylesheet" href="./CSS/income.css">
-    <link rel="stylesheet" href="./CSS/adstera-ads.css">
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
     <nav>
-        <div class="menu">
-            <span><a class="home" href="">Home</a></span>
+        <div class="nav">
+            <div class="menu">
+                <div class="logo">
+                    <a href="">
+                        <span class="easy-logo">Stu<span class="earn-logo">dent</span></span>
+                    </a>
+                </div>
+                <!------onMobileMenusideBar------->
+                <i id="onMobileMenusideBar" style="display: none;" class="fas fa-bars"></i>
+                <div class="subMenu">
+                    <span class="Affilate-now"><a href="#from-Affilate">Affilate</a></span>
+                    <a href="#aoute"><span>Aboute</span></a>
+                    <a href="#earn" class="earn"><span>Earn</span></a>
+                    <div class="onPC">
+                        <a href="#profileUpdate">Profile</a>
+                        <a href="#from-widrow">Widrow</a>
+                        <a href="#history">history</a>
+                        <span class="Logout">Logout</span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="profile-min">
+                <span class="balance"></span>
+                <img id="profilePick" alt="profilePick">
+            </div>
+        </div>
+        <div class="onMobileMenu active">
+            <i id="onMobileMenusideBarCloase" class="fas fa-times"></i>
             <span class="Affilate-now"><a href="#from-Affilate">Affilate</a></span>
             <a href="#aoute"><span>Aboute</span></a>
             <a href="#earn" class="earn"><span>Earn</span></a>
-            
-        </div>
-        <div class="profile">
-            <div class="balance">Balance TK <span class="balanc"></span> </div>
-            <div class="userName"><span class="userNam"></span></div>
-            <div class="profilePick">
-                <div class="profile-pick">
-                    <img id="profile-Img" src="./pick/profile.png" alt="">
-                    <span class=".userActive"></span>
-                </div>
-                <div class="profile-viw">
-                    <div class="profile-ditels"><i class="fas fa-user"></i>My profile</div>
-                    <div class="home2"><span><a href=""><i class="fas fa-home"></i>Home</a></span></div>
-                    <span class="Affilate-now Affilate2"><i class="fas fa-walking"></i><a href="#from-Affilate">Affilate</a></span>
-                    <div class="about"><a href="#aoute"><i class="fas fa-user-injured"></i><span>Aboute</span></a></div>
-                    <div class="earne"><a href="#earn"><i class="fas fa-hand-holding-usd"></i><span>Earn</span></a></div>
-                    <span class="Widrow-now"><i class="fas fa-wallet"></i>Widrow</span>
-                    <span class="history-now"><i class="fas fa-history"></i>Widrow history</span>
-                    <div id="dark" class="mode"><i class="fas fa-moon"></i>Dark Mode</div>
-                    <div id="lighte" style="display: none;" class="mode"><i class="far fa-lightbulb"></i></i>Light Mode</div>
-                    <div class="parentsignout">
-                        <span class="Signout"><i class="fas fa-sign-out-alt"></i>Logout</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            
+            <a href="#profileUpdate">My Profile</a>
+            <a href="#from-widrow">Widrow</a>
+            <a href="#history">Widrow history</a>
+            <span class="Logout onMobile">Logout</span>
         </div>
     </nav>
 
-    <marquee style="color: red; font-size:20px">Don't waste time!  <span class="colock"></span> </marquee>
-    <marquee style="color: rgb(0, 0, 0); font-size:20px">Work Tim : (7:AM) -  (8:AM)  - (4:PM) - (5:PM) - (8:PM)</marquee>
+    <marquee style="color: red; font-size:20px; margin-top: 75px;position: fixed; z-index: 1 !important;">Don't waste time!  <span class="colock"></span> </marquee>
+
+    <div class="walpayper">
+        <img id="walpayper" src="./pick/wall.png" alt="">
+    </div>
+
     <div class="container">
         
         <!-- income Boxs -->
-        <section>
+        <section id="earn">
             <div class="income">
                 <!-- incomeItems boxes -->
                 <!-- incomeItems update boxes -->
                 <div class="workAbilble-updatnews">
                     <div class="work-box">
-                        <div class="workAbilble">Have Work = <span class="workCount"></span></div>
+                        <div class="workAbilble">Work Available = <span class="workCount"></span></div>
                         <div class="workboxupdateTime"></div>
                     </div>
                     <div class="updateNews"><span>Update News <span class="updateTime"></span></span></div>
@@ -469,7 +86,6 @@
                     <div id="income-box-1"class="income-box-1">1
                         <div class="income-box1-coundown"></div>
                         <div class="income-box1-coundownbg">1</div>
-                        <div class="income-box1-open-1 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-1 income-box">Earn Now</div>
                         <div id="income-box1-Claim-Now-1" class="income-box1-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -477,7 +93,6 @@
                     <div id="income-box-2"class="income-box-2">2
                         <div class="income-box2-coundown"></div>
                         <div class="income-box2-coundownbg">2</div>
-                        <div class="income-box2-open-2 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-2 income-box">Earn Now</div>
                         <div id="income-box2-Claim-Now-2" class="income-box2-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -485,7 +100,6 @@
                     <div id="income-box-3"class="income-box-3">3
                         <div class="income-box3-coundown"></div>
                         <div class="income-box3-coundownbg">3</div>
-                        <div class="income-box3-open-3 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-3 income-box">Earn Now</div>
                         <div id="income-box3-Claim-Now-3" class="income-box3-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -493,7 +107,6 @@
                     <div id="income-box-4"class="income-box-4">4
                         <div class="income-box4-coundown"></div>
                         <div class="income-box4-coundownbg">4</div>
-                        <div class="income-box4-open-4 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-4 income-box">Earn Now</div>
                         <div id="income-box4-Claim-Now-4" class="income-box4-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -501,7 +114,6 @@
                     <div id="income-box-5"class="income-box-5">5
                         <div class="income-box5-coundown"></div>
                         <div class="income-box5-coundownbg">5</div>
-                        <div class="income-box5-open-5 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-5 income-box">Earn Now</div>
                         <div id="income-box5-Claim-Now-5" class="income-box5-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -509,7 +121,6 @@
                     <div id="income-box-6"class="income-box-6">6
                         <div class="income-box6-coundown"></div>
                         <div class="income-box6-coundownbg">6</div>
-                        <div class="income-box6-open-6 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-6 income-box">Earn Now</div>
                         <div id="income-box6-Claim-Now-6" class="income-box6-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -517,7 +128,6 @@
                     <div id="income-box-7"class="income-box-7">7
                         <div class="income-box7-coundown"></div>
                         <div class="income-box7-coundownbg">7</div>
-                        <div class="income-box7-open-7 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-7 income-box">Earn Now</div>
                         <div id="income-box7-Claim-Now-7" class="income-box7-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -525,7 +135,6 @@
                     <div id="income-box-8"class="income-box-8">8
                         <div class="income-box8-coundown"></div>
                         <div class="income-box8-coundownbg">8</div>
-                        <div class="income-box8-open-8 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-8 income-box">Earn Now</div>
                         <div id="income-box8-Claim-Now-8" class="income-box8-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -533,7 +142,6 @@
                     <div id="income-box-9"class="income-box-9">9
                         <div class="income-box9-coundown"></div>
                         <div class="income-box9-coundownbg">9</div>
-                        <div class="income-box9-open-9 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-9 income-box">Earn Now</div>
                         <div id="income-box9-Claim-Now-9" class="income-box9-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -541,7 +149,6 @@
                     <div id="income-box-10"class="income-box-10">10
                         <div class="income-box10-coundown"></div>
                         <div class="income-box10-coundownbg">10</div>
-                        <div class="income-box10-open-10 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-10 income-box">Earn Now</div>
                         <div id="income-box10-Claim-Now-10" class="income-box10-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -549,7 +156,6 @@
                     <div id="income-box-11"class="income-box-11">11
                         <div class="income-box11-coundown"></div>
                         <div class="income-box11-coundownbg">11</div>
-                        <div class="income-box11-open-11 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-11 income-box">Earn Now</div>
                         <div id="income-box11-Claim-Now-11" class="income-box11-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -557,7 +163,6 @@
                     <div id="income-box-12"class="income-box-12">12
                         <div class="income-box12-coundown"></div>
                         <div class="income-box12-coundownbg">12</div>
-                        <div class="income-box12-open-12 income-box">Box Open</div>
                         <div class="Earn-Now Earn-Now-12 income-box">Earn Now</div>
                         <div id="income-box12-Claim-Now-12" class="income-box12-Claim-Now income-box">Claim Now</div>
                     </div>
@@ -568,22 +173,27 @@
             </div>
         </section>
         <!-- profile update -->
-        <div class="profileUpdate" style="display: none;">
+        <div class="profileUpdate" id="profileUpdate">
             <form>
                 <span style="color: #000 !important; font-size: 20px;">Profile </span>
                 <span class="aleart"></span>
-                <div class="profile-1">
-                    <label>Full Name : <input id="name" type="text" placeholder="Enter Your Name"></label>
-                    <label>User Name : <input id="uname" type="text" placeholder="Enter Your User Name" readonly></label>
-                    
+                <div class="profile-update">
+                    <div class="profile-1">
+                        <label>Full Name : <input id="name" type="text" placeholder="Enter Your Name"></label>
+                        <label>User Name : <input id="uname" type="text" placeholder="Enter Your User Name" readonly></label>
+                        <label>Reffare Code :<input id="reffarelCode" readonly value="Reffarel Code = "></label>
+                        
+                    </div>
+                    <div class="profile-2">
+                        <label>Email : <input id="email" type="email" placeholder="Enter Your Email"></label>
+                        <label>Phone : <input id="number" type="number" placeholder="Enter Your Phone Number"></label>
+                        <label>Password : <input id="password" type="text" placeholder="Enter Password"></label>
+                    </div>
+                    <div class="profile-pick-edite">
+                        <input id="input-img" type="file"> <img id="select-img" src="/pick/profile.png" alt="">
+                    </div>
                 </div>
-                <div class="profile-2">
-                    <label>Email : <input id="email" type="email" placeholder="Enter Your Email"></label>
-                    <label>Phone : <input id="number" type="number" placeholder="Enter Your Phone Number"></label>
-                    <label>Password : <input id="password" type="text" placeholder="Enter Password"></label>
-                </div>
-                <label>Choose Img : <input id="input-img" type="file" hidden> <img id="select-img" src="/pick/profile.png" alt=""></label>
-                <input id="reffarelCode" readonly value="Reffarel Code = ">
+                
                 <div class="profile-button">
                     <input id="Update"type="submit" name="submit" value="Update">
                     <input id="cancel" type="submit" name="submit" value="Cancel">
@@ -591,30 +201,33 @@
             </form>
         </div>
         <!-- from-widrow -->
-        <div class="from-widrow" style="display: none;">
+        <div class="from-widrow" id="from-widrow">
             <form style="padding: 0 20px 20px 20px;">
                 <div class="chack"></div>
-                <span style="color: #000 !important;font-size: 20px;font-weight: 600;font-family: cursive;">Widrow</span>
+                <span style="color: #000 !important;font-size: 20px;font-weight: 600;font-family: cursive; padding: 15px 0;">Widrow</span>
                 <span class="minimum">Minimum Balance TK 1000.00</span>
-                <span class="refarel">Refarel Code 5 pepole Acount Created</span>
                 <span class="alaert"></span>
                 <input id="widrowUserName" required type="text" placeholder="User Name">
                 <input id="widrowUserEmail" required type="email" placeholder="User Email">
+                <select id="paymentMethod" required>
+                    <option value="Select-Payment-Method">Select Payment Method</option>
+                    <option value="Bkash">Bkash</option>
+                    <option value="Rockete">Rockete</option>
+                    <option value="Dach Bangla">Dach Bangla</option>
+                </select>
                 <input id="bkashRocketNumber" required type="number" placeholder="Bkash/Rockete No: 01770******">
                 <input id="amunt" required type="number" placeholder="Amount minimum 1000 : 00 TK">
-                <span id="checkBox" class="checkboxed" >10 % Admin Fee</span>
+                <span id="checkBox" class="checkboxed" >5 % Fee</span>
                 <input class="widrow-submit" id="widrow-submit" type="submit" value="Widrow-Now">
             </form>
         </div>
         <!-- widrow history-->
-        <div class="history" style="display: none;"></div>
+        <div class="history" id="history"></div>
         <!-- Affilate program-->
-        <div class="from-Affilate">
+        <div class="from-Affilate" id="from-Affilate">
             <form>
-                <span class="aleart">User Name Or Gmail is Emtay</span>
-                <span class="Refarel">Refarel Code = <span class="Refarel RefarelCode"></span> </span>
-                <span class="refarel-link">Refarel link 2 pepole Acount Created</span>
-                <span class="Affilate-Acount">Refarel Acount : <span class="Affilate-Acount Affilate-Acount-count">0</span></span>
+                <span class="Refarel">Refarel Code = <span class="RefarelCode"></span>
+                <span class="Affilate-Acount">Refarel Acount : <span class="Affilate-Acount-count">0</span></span>
             </form>
         </div>
 
@@ -623,11 +236,13 @@
     <div class="aoute" id="aoute">
         <div class="aboute-heade">Aboute</div>
         <span class="description">
-            People may maintain personal web pages to serve as a showcase for their skills in professional life,[3] creative skills or self promotion of their business, charity or band.[4] It can also be used to express opinions on issues ranging from news and politics to movies. Others may use their personal web page as a communication method. For example, an aspiring artist might give out business cards with their personal web page, and invite people to visit their page and see their artwork, "like" their page or sign their guestbook.
-
-            A personal web page gives the owner generally more control on presence in search results and how they wish to be viewed online. It also allows more freedom in types and quantity of content than a social network profile offers,[5] and can link various social media profiles with each other. It can be used to correct the record on something, or clear up potential confusion between you and someone with the same name.[6][7][8]
-
-            In the 2010s, some amateur writers, bands and filmmakers release digital versions of their stories, songs and short films online, with the aim of gaining an audience and becoming more well-known. While the huge number of aspiring artists posting their work online makes it unlikely for individuals and groups to become popular via the Internet, there are a small number of YouTube stars who were unknown until their online performances garnered them a huge audience.[citation needed]
+            <span>1 : Do not share the same Wi-Fi with two people.</span>
+            <span>2 : Do not use another mobile hotspot.</span>
+            <span>3 : If you do not work for seven consecutive days, your account will be deleted.</span>
+            <span>4 :If your IP and other IP are the same then it can be very confusing while withdrawing money.</span>
+            <span>5 : If you work according to Neom, you will get 100% money.</span>
+            <span>6 : Profile Picture less than 1MB.</span>
+            <span>7 : For more details, join the Telegram group, follow my Facebook page, and subscribe to the YouTube Channel.</span>
         </span>
     </div>
 
@@ -640,23 +255,28 @@
     </div>
 
     <footer>
-        <span class="All-rights"></span>
-        <div class="social-links">
-            <a href="https://www.facebook.com/freelancerabdurrahman360" target="_blank"><img src="./pick/Facebook.png" alt=""></a>
-            <a href="https://t.me/forsage_A_Rahman" target="_blank"><img src="./pick/teligram.png" alt=""></a>
-            <a href="https://www.youtube.com/@onlinesupport360" target="_blank"><img src="./pick/youtube.png" alt=""></a>
+        <div class="footer">
+            <span class="All-rights"></span>
+            <div class="social-links">
+                <a href="https://www.facebook.com/freelancerabdurrahman360" target="_blank"><img src="./pick/Facebook.png" alt=""></a>
+                <a href="https://t.me/forsage_A_Rahman" target="_blank"><img src="./pick/teligram.png" alt=""></a>
+                <a href="https://www.youtube.com/@onlinesupport360" target="_blank"><img src="./pick/youtube.png" alt=""></a>
+            </div>
         </div>
     </footer>
 
 
-    <script type='text/javascript' src='//pl18801680.highrevenuegate.com/19/0d/4d/190d4d2738cfa38e68e40b4282a0e23c.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="./javascript/sticky.js"></script>
+    <!-- <script type='text/javascript' src='//pl18801680.highrevenuegate.com/19/0d/4d/190d4d2738cfa38e68e40b4282a0e23c.js'></script> -->
     <!-- astara ads -->
-    <script src="./javascript/script.js"></script>
+    <!-- <script src="./javascript/script.js"></script> -->
     <script src="./javascript/clock.js"></script>
+    <script src="./javascript/mobileMenu.js"></script>
     <script src="./javascript/homepage.js"></script>
     <script src="./javascript/profileUpdate.js" type="module"></script>
-    <script src="./javascript/them.js"></script>
-    <script src="./javascript/incomeBox1.js"></script>
+    <!-- <script src="./javascript/them.js"></script> -->
+    <script src="./javascript/incomeBox.js"></script>
     <script src="./javascript/deviceActive.js"></script>
 </body>
 </html>
