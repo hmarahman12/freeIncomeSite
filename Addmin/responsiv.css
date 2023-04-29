@@ -103,6 +103,10 @@
     }
     .chart-box {
         width: 100%;
+        margin-top: 680px;
+    }
+    .top-customer-latestorder{
+        top: 0;
     }    
     .box{
         width: 100%;
