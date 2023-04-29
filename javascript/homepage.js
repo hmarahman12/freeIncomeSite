@@ -14,7 +14,7 @@ const auth = firebase.auth();
 const db = firebase.database();
 
 //-------------------refrenc----------------------------//
-const signout = document.querySelector('.Signout');
+const signout = document.querySelector('span.Logout');
 
 //----------------------aouthentication process----------//
 
@@ -24,8 +24,6 @@ function loginUser() {
         var user_ref = db.ref('users/' + localStorageuName)
         user_ref.on('value', function(snapshot){
             var user = snapshot.val();
-
-
             //vew profile && edit profile
             document.querySelector("input#name").value = user.displayName;
             document.querySelector("input#uname").value = user.uName;
@@ -37,16 +35,31 @@ function loginUser() {
             sessionStorage.setItem('password',user.password);
             document.querySelector("img#select-img").src = user.photoURL;
             document.querySelector("input#reffarelCode").value += user.reffarelCode;
+            //ip set localstorage
+            //IP Check////////////////////////
+            function ipCheck(){
+                setTimeout(()=>{
+                fetch("https://api.ipify.org/?format=json").then(re=>re.json()).then(data=>{
+                    localStorage.setItem('ip_address', data.ip);
+                })
+                },1000)
+            }ipCheck();
+            let userIP = localStorage.getItem('ip_address');
+            setTimeout(() => {
+                db.ref('users/' + localStorageuName).update({
+                    ip : userIP
+                });
+            },1000);
             //vew profile && edit profile
             
 
             //get database data use
-            document.querySelector(".RefarelCode").innerHTML = user.reffarelCode;
-            document.querySelector(".userNam").innerHTML = user.uName;
+            document.querySelector(".RefarelCode").innerHTML = ' ' + user.reffarelCode + ' ';
+            document.querySelector("input#reffarelCode").innerHTML = user.reffarelCode;
             localStorage.setItem('minBalance',user.Balance);
             //
-            document.querySelector(".balanc").innerHTML = user.Balance;
-            document.querySelector(".profilePick img").src = user.photoURL;
+            document.querySelector("span.balance").innerHTML ='Balance TK ' + user.Balance;
+            document.querySelector("img#profilePick").src = user.photoURL;
             localStorage.setItem('profilePick',user.photoURL);
             localStorage.setItem('userPhoto',user.photoURL);
             localStorage.setItem('userEmail',user.email);
@@ -85,7 +98,8 @@ function loginUser() {
                 
                 if(refarelCount >= 2){
                     // console.log('Yes');
-                    document.querySelector(".refarel-link").classList.add("active");
+
+                    // document.querySelector(".refarel-link").classList.add("active");
 
                     //minimum refarel 5 account cearted chack
                 document.querySelector(".refarel").classList.add('active');
@@ -200,6 +214,7 @@ let widrowUserName = document.querySelector("input#widrowUserName");
 let widrowUserEmail = document.querySelector("input#widrowUserEmail");
 let widrowNumber = document.querySelector("input#bkashRocketNumber");
 let widrowAmount = document.querySelector("input#amunt");
+let paymentMethod = document.querySelector("select#paymentMethod");
 let widrowSubmit = document.querySelector("input#widrow-submit");
 let aleart = document.querySelector(".alaert");
 let localStorageuName = localStorage.getItem('userName');
@@ -209,6 +224,7 @@ function widrow(){
     widrowSubmit.addEventListener('click', function(e){
         let widrowUserNameValue = widrowUserName.value;
         let widrowUserEmailValue = widrowUserEmail.value;
+        let paymentMethodValue = paymentMethod.value;
         let widrowNumberValue = widrowNumber.value;
         let widrowAmountValue = widrowAmount.value;
 
@@ -217,6 +233,9 @@ function widrow(){
             aleart.classList.remove("active")
         }else if(widrowUserEmailValue == ''){
             aleart.innerHTML = "widrow UserEmail is emtay!";
+            aleart.classList.remove("active")
+        }else if(paymentMethodValue == 'Select-Payment-Method'){
+            aleart.innerHTML = "Select-Payment-Method!";
             aleart.classList.remove("active")
         }else if(widrowNumberValue == ''){
             aleart.innerHTML = "widrow Number is emtay!";
@@ -246,11 +265,11 @@ function widrow(){
                     let widrowStatuse = localStorage.getItem('widrowStatuse');
                     // console.log("Paide");
                     if(updateBalance < widrowAmountupdate){
-                        aleart.innerHTML = "Balance is Short";
+                        aleart.innerHTML = "Balance is Short" + "Minimum 1000";
                         // console.log("Not Balance");
                     }else{
 
-/////////////////////////////widrow time set////////////////////
+// /////////////////////////////widrow time set////////////////////
                     setInterval (()=>{
                     },1000) ;
                         /////////widrow time set///////////////
@@ -286,6 +305,7 @@ function widrow(){
                         db.ref('Addmin/' + 'Widrow/' + localStorageuName).push({
                             widrowUserName : widrowUserNameValue,
                             widrowUserEmail : widrowUserEmailValue,
+                            paymentMethod : paymentMethodValue,
                             widrowNumber : widrowNumberValue,
                             widrowAmount : widrowAmountValue,
                             widrowTime : widroTime,
@@ -295,6 +315,7 @@ function widrow(){
                         db.ref('Addmin/' + 'AddminWidrow/').push({
                             widrowUserName : widrowUserNameValue,
                             widrowUserEmail : widrowUserEmailValue,
+                            paymentMethod : paymentMethodValue,
                             widrowNumber : widrowNumberValue,
                             widrowAmount : widrowAmountValue,
                             widrowTime : widroTime,
@@ -334,7 +355,7 @@ function widrow(){
             
         }
         let localWidthrow = localStorage.getItem('widthrow')
-        console.log(typeof(Number(localWidthrow)),typeof(Number(widrowAmountValue)));
+        // console.log(typeof(Number(localWidthrow)),typeof(Number(widrowAmountValue)));
         
         db.ref('Addmin/' + 'Widrows/').update({widrowAmount : Number(localWidthrow) + Number(widrowAmountValue)})
         
@@ -357,12 +378,46 @@ function userActive(){
     })
 }
 
-//login chack
+//active Useres addmin
+let activeUName = localStorage.getItem('userName');
+let activeBalance = localStorage.getItem('minBalance');
+let activeProfile = localStorage.getItem('profilePick');
+let activeEmail = localStorage.getItem('userEmail');
+let activeIP = localStorage.getItem('ip_address');
+let dviceActive = localStorage.getItem('dviceActive');
+let activeStatus = localStorage.getItem('users-Active-NoActive');
 function userActiveAddmin(){
     db.ref('Addmin/' + 'LoginAddmin/' + localStorageuName).set({
-        userName : localStorageuName
+        userName : activeUName,
+        Balance : activeBalance,
+        userEmail : activeEmail,
+        ip_address : activeIP,
+        dviceActive : dviceActive,
+        activeStatus : activeStatus,
+        profilePick : activeProfile
     })
-}
+}userActiveAddmin();
+//users active////////
+function usersActiveAddmin1(){
+    setTimeout(()=>{
+      let usersActiveNoActive = localStorage.getItem('users-Active-NoActive');
+      db.ref('Addmin/' + 'LoginAddmin/' + localStorageuName).update({
+        activeStatus : usersActiveNoActive,
+        dviceActive : dviceActive
+      });
+    },3000)
+}usersActiveAddmin1();
+
+function usersActiveAddmin2(){
+    setTimeout(()=>{
+      let usersActiveNoActive = localStorage.getItem('users-Active-NoActive');
+      db.ref('Addmin/' + 'LoginAddmin/' + localStorageuName).update({
+        activeStatus : usersActiveNoActive,
+        dviceActive : dviceActive
+      });
+    },660000)
+}usersActiveAddmin2();
+
 function userInActiveAddmin(){
     db.ref('Addmin/' + 'LoginAddmin/' + localStorageuName).remove().then(
         function(){
@@ -391,6 +446,7 @@ let widrowHistoryBoday = document.querySelector(".history");
 db.ref('Addmin/' + 'Widrow/' + localStorageuName)
     .on('value', function(snapshot){
     var widrowhistory = snapshot.val();
+    widrowHistoryBoday.innerHTML = '';
     for(widrowhistorys in widrowhistory){
         // console.log(widrowhistory[widrowhistorys]);
         let widrowInformation = widrowhistory[widrowhistorys];
@@ -404,7 +460,11 @@ db.ref('Addmin/' + 'Widrow/' + localStorageuName)
                     <div class="name">${widrowInformation.widrowUserName}</div>
                     <div class="email">${widrowInformation.widrowUserEmail}</div>
                 </div>
-                <div class="date">
+                <div class="payment">
+                    <div class="paymentMethod">Payment Method</div>
+                    <div class="paymentMethod-b-r-d">${widrowInformation.paymentMethod}</div>
+                </div>
+                <div class="date-time">
                     <div class="time">${widrowInformation.widrowTime}</div>
                     <div class="date">${widrowInformation.widrowDate}</div>
                 </div>
@@ -420,8 +480,8 @@ db.ref('Addmin/' + 'Widrow/' + localStorageuName)
         ////them Change
         document.querySelectorAll(".hstProfile").forEach((e)=>{
             //them Change
-            let dark = document.querySelector("div#dark");
-            let lighte = document.querySelector("div#lighte");
+            let dark = document.querySelector("span.theem-dark-white");
+            let lighte = document.querySelector("span.theem-white-dark");
             let dark_light = localStorage.getItem('dark');
             if(dark_light == null){
                 localStorage.setItem('dark','light');
@@ -463,19 +523,63 @@ auth.onAuthStateChanged(function(user){
         widrow();
     }else{
         console.log("No Active User ");
-        window.location = "/freeIncomeSite/register";
+        window.location = "/register";
     }
 })
 
+//users active////////
+function usersActive(){
+  setTimeout(()=>{
+    localStorage.setItem('users-Active-NoActive','active');
+    let usersActiveNoActive = localStorage.getItem('users-Active-NoActive');
+    db.ref('users/' + localStorageuName).update({
+      usersActive : usersActiveNoActive
+    });
+  })
+}usersActive();
+//users No active 30 minit waite call back fungtion////////
+function usersNoActive(){
+    localStorage.setItem('users-Active-NoActive','No-active');
+    let usersActiveNoActive = localStorage.getItem('users-Active-NoActive');
+    db.ref('users/' + localStorageuName).update({
+      usersActive : usersActiveNoActive
+    });
+}
+setTimeout(()=>{
+  usersNoActive()
+},600000)
 
 //sign out
 function SignOut(){
     auth.signOut();
     userInActiveAddmin();
-    localStorage.clear();
     alert("Are You Sure Sign Out!");
     userInActive();
+    usersNoActive();
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('password');
+    localStorage.removeItem('minBalance');
 }
+//defalt sihnout
 signout.addEventListener('click',function(){
     SignOut();
+});
+document.querySelector('span.Logout.onMobile').addEventListener('click',function(){
+    SignOut();
 })
+//aouto signout ///////////
+setTimeout(()=>{
+  SignOut();
+},86400000);
+
+//dviceActive2
+function dviceActive2(){
+    if(window.innerWidth <= 600){
+      localStorage.setItem('dviceActive','mobile')
+    }else if(window.innerWidth <= 1000){
+      localStorage.setItem('dviceActive','tablet')
+    }else if(window.innerWidth <= 2000){
+      localStorage.setItem('dviceActive','desktop')
+    }
+}dviceActive2()
