@@ -1,17 +1,28 @@
-.allUsers {
+span.All-Users-Active ,span.All-Users-show{
+    margin: auto;
+    text-align: center;
+    display: block;
+    padding: 8px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.allUsers ,.allUsersActive{
     background: #efefef;
-    height: 287px;
+    height: 326px;
     overflow: auto;
     position: absolute;
     top: 500px;
     width: 83%;
     z-index: 99;
 }
+.allUsers {
+    top: 850px;
+}
 .top-customer-latestorder {
     position: relative;
-    top: 250px;
+    top: 670px;
 }
-.allUsers::-webkit-scrollbar{
+.allUsers::-webkit-scrollbar,.allUsersActive::-webkit-scrollbar{
     width: 0;
 }
 img#img{
@@ -28,6 +39,20 @@ img#img{
     border: 1px solid;
     border-radius: 3px;
     padding: 5px;
+    position: relative;
+}
+span.active-cercle1 {
+    width: 15px;
+    height: 15px;
+    background: #d3d3d3;
+    border: 1px solid #898989;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 8px;
+    left: 59px;
+}
+span.active-cercle2 {
+    background: #19ff35;
 }
 .name-email,.status-usersmass{
     display: flex;
@@ -42,6 +67,11 @@ span.usermass{
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
+}
+.UserIp {
+    background: #000;
+    color: #0eff0e;
+    padding: 5px;
 }
 .status-usersmass.active,.ms.active{
     display: none;
