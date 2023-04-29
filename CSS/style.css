@@ -2,72 +2,210 @@
     margin: 0;
     padding: 0;
 }
-/*****nav******/
-nav {
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto;
-}
-.menu ,.profile{
-    margin: 13px 0;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.menu{
-    margin-left: -52px;
-}
-.profile{
-    margin-right: -30px;
-}
-.menu span,.userName {
-    padding: 5px;
-    border-radius: 3px;
+.scroll-up-btn {
+    position: fixed;
+    right: 7px;
+    bottom: 100px;
+    font-size: 25px;
+    display: none;
+    background: #E91E63;
+    padding: 2px 5px;
+    color: #fff;
+    border-radius: 2px;
     cursor: pointer;
+    z-index: 9999 !important;
 }
-/** widrow-min show and hide*/
-.active,.profile-viw.active{
+.scroll-up-btn.show{
     display: block !important;
 }
-
-span.Widrow-now,span.history-now{
-    position: relative;
-}
-
-.profile-viw {
-    width: 169px;
-    height: 900px;
-    position: absolute;
-    right: 14px;
-    top: 135px;
-    z-index: 9999;
-    background: #fff;
-    padding: 14px;
-    border-radius: 3px;
-    display: none;
-    box-shadow: 0px 8px 18px -1px black;
-}
-.home2 span a,span.Affilate-now.Affilate2,.about a,.earne a,span.Widrow-now,span.history-now,.Signout,.profile-ditels,.mode{
-    display: block;
+nav {
+    background: black;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    z-index: 999 !important;
     cursor: pointer;
-    color: #000;
-    background: #f7f7f7;
-    margin-bottom: 7px;
-    padding: 5px 10px;
-    font-size: 16px;
+}
+span.easy-logo {
+    color: #fff;
+    font-size: 25px;
+    font-family: system-ui;
+    font-weight: 700;
+    cursor: pointer;
+}
+span.earn-logo{
+    color: crimson;
+}
+span.earn-logo.logo {
+    color: #fff;
+}
+.nav {
+    display: flex;
+    width: 80%;
+    margin: -8px auto;
+    padding-bottom: 3px;
+    align-items: center;
+    justify-content: space-between;
+}
+nav.sticky {
+    background: crimson;
+    border-bottom: 1px solid #fff;
+}
+.menu {
+    display: flex;
+    align-items: center;
+}
+.onPC {
+    display: flex;
+    align-items: center;
+}
+
+.profile-min {
+    display: flex;
+    text-align: right;
+    align-items: center;
+    margin-top: 12px;
+}
+.menu a {
+    text-decoration: none;
+    color: rgb(241, 241, 241);
+    font-size: 20px;
+    margin: 5px;
+}
+.subMenu {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+.logo a {
     text-decoration: none;
 }
-.profile-viw i {
-    margin-right: 10px;
+
+.onPC span {
+    margin: 5px 5px 0px 5px;
+    font-size: 20px;
+    color: #fff;
 }
-.from-Affilate{
-    height: 160px !important;
-    margin: 50px 0;
+span.Logout ,span.balance{
+    font-weight: 700;
+    color: #fff;
+    font-size: 20px;
+    font-family: system-ui;
 }
-/******widrow history**********/
+img#profilePick {
+    width: 60px;
+    height: 60px;
+    border: 1px solid crimson;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+/***********one mobile phone menu************/
+i#onMobileMenusideBar {
+    color: #fff;
+    margin-left: 16px;
+    font-size: 15px;
+}
+
+/***********profile update************/
+div#profileUpdate form ,div#from-widrow form,div#from-Affilate form{
+    width: 92%;
+    background: crimson;
+    padding: 20px;
+    margin: 45px auto;
+}
+.profile-update {
+    display: flex;
+    justify-content: space-around;
+}
+.profile-1 ,.profile-2{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+.profile-1 label input,.profile-2 label input {
+    margin: 5px;
+}
+.profile-1 label ,.profile-2 label{
+    margin: 10px;
+}
+input#name,input#uname,input#reffarelCode,input#email,input#number,input#password{
+    margin-left: 15px;
+    padding: 2px;
+    outline: none;
+}
+img#select-img {
+    width: 150px;
+}
+.profile-pick-edite {
+    position: relative;
+    cursor: pointer;
+}
+.profile-pick-edite label {
+    position: absolute;
+    cursor: pointer;
+    top: 45%;
+    left: 37%;
+    background: crimson;
+    padding: 2px 4px;
+    color: #fff;
+    font-family: system-ui;
+    border-radius: 3px;
+}
+.profile-button {
+    display: flex;
+    justify-content: flex-end;
+}
+input#Update {
+    padding: 4px 15px;
+    background: green;
+    color: #fff;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+input#cancel {
+    color: red;
+    padding: 4px 8px;
+    margin-left: 25px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+input#input-img {
+    width: 100%;
+    height: 157px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+}
+/***********widhrow form************/
+div#from-widrow form {
+    display: flex;
+    flex-direction: column;
+}
+div#from-widrow form input {
+    margin: 5px;
+    font-size: 20px;
+    padding: 3px;
+    outline: none;
+}
+select#paymentMethod {
+    width: 99%;
+    margin: auto;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+}
+span#checkBox ,span.minimum,span.refarel{
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+input#widrow-submit {
+    cursor: pointer;
+}
+/***********widhrow history************/
 .history {
     height: 554px !important;
     cursor: default;
@@ -77,118 +215,13 @@ span.Widrow-now,span.history-now{
     border-radius: 3px;
     box-shadow: 0px 8px 18px -1px black;
 }
-.history::-webkit-scrollbar{
-    width: 0;
-}
-.history.active:hover ,span.history-now:hover .history.active{
-    background: #fff;
-    color: black;
-}
-/******from**********/
-form {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-span.Refarel,span.Affilate-Acount{
-    width: 145px;
-    display: flex;
-    align-items: stretch;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: column;
-    margin: 0 auto;
-    align-content: stretch;
-}
-span.Affilate-Acount,.Refarel,a{
-    font-size: 20px;
-    color: black !important;
-    font-family: sans-serif;
-    text-decoration: none;
-}
-form span {
-    width: 100%;
-    height: 17px;
-    font-size: 13px;
-    margin: 7px 0;
-    cursor: text !important;
-    background: rgba(0, 0, 0, 0) !important;
-    color: red !important;
-    border: none !important;
-}
-
-form input {
-    width: 100%;
-    height: 25px;
-    margin: 7px 0;
-    outline: none;
-    border: 1px solid #2ec72e;
-    border-radius: 3px;
-    padding-left: 7px;
-}
-span.checkboxed {
-    width: 100%;
-    display: flex;
-    color: black !important;
-    align-items: center;
-    background: rgba(0, 0, 0, 0) !important;
-    border: 1px solid #1ac31a !important;
-    justify-content: center;
-    font-size: 14px;
-    text-align: center;
-}
-input.widrow-submit {
-    width: 100%;
-    cursor: pointer;
-    transition: all ease 0.5s;
-}
-.chack {
-    position: absolute;
-    background: #ff000000;
-    width: 100%;
-    height: 100%;
-    cursor: default;
-}
-input.widrow-submit:hover {
-    background: green;
-    color: #fff;
-    transition:  all ease 0.5s;
-    border-color: green;
-}
-.menu a ,span.Affilate-now{
-    color: black;
-    text-decoration: none;
-}
-.menu span:hover,.menu a:hover,a.home:hover {
-    background: #000;
-    color: #fff !important;
-    transition: all ease 0.5s;
-}
-.balance {
-    font-size: 15px;
-    font-weight: 600;
-    font-family: sans-serif;
-    cursor: default;
-}
-.profile-pick ,.hstProfile{
+img#img{
     cursor: pointer;
     position: relative;
+    border: 1px solid crimson;
+    border-radius: 50%;
     width: 50px;
     height: 50px;
-}
-
-.profile-pick img,img#img {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    border: 1px solid #000;
-    border-radius: 50%;
-    box-shadow: 1px 0px 18px -4px;
-}
-img#img {
-    width: 60px;
 }
 .hstProfile {
     display: flex;
@@ -201,29 +234,6 @@ img#img {
     justify-content: space-between;
     align-items: center;
 }
-
-.name-email {
-    margin-left: 5px;
-}
-.img-name-email {
-    display: flex;
-    align-items: center;
-}
-
-.amount-button {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.amount {
-    margin-left: 60px;
-    font-size: 20px;
-}
-.widrowButton {
-    margin-left: 40px;
-}
-
 .widrowButton {
     text-align: center;
     padding: 4px;
@@ -236,7 +246,6 @@ div#Paid {background: #42c142;}
 div#Rejected {
     background: #ff4040;
 }
-
 button#pendding,button#paid {
     padding: 3px;
     border-radius: 3px;
@@ -275,139 +284,294 @@ span.\.userActive {
     display: none;
 }
 span.alaert {
-    font-size: 18px;
-}
-/***iframe****/
-
-.container{
-    width: 1500px;
-    margin: auto;
-}
-iframe {
-    width: 90%;
-    height: 800px;
-    margin-right: 47px;
-}
-.slider {
-    text-align: center;
-    position: relative;
-}
-.button {
-    display: flex;
-    /* width: 704px; */
-    margin: 0 253px;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
-}
-.btn{
-    border: none;
-    outline: none;
-    background: #888;
-    padding: 10px 30px;
-    font-size: 12px;
-    user-select: none;
-    color: #ddd;
-    text-decoration: none;
-    cursor: pointer;
-    margin: 10px 45px;
-    border-radius: 5px;
-}
-
-.btn:hover{
-    background: rgb(17, 16, 16);
-    transition: all ease .5s;
-    color: aliceblue;
-}
-
-/******aboute********/
-.aboute-heade {
-    margin-top: 85px;
-    font-size: 40px;
-    font-family: fantasy;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 24px;
-    text-decoration: underline;
-    cursor: pointer;
-}
-.aoute {
-    width: 73%;
-    margin: auto;
-    margin-bottom: 40px;
-}
-span.description {
+    background: #fff;
     font-size: 20px;
+    padding: 3px;
+    text-align: center;
+    font-family: system-ui;
+    width: 98%;
+    margin: auto;
+    color: red;
 }
-
-/****fotter**/
-
-footer {
-    background: #438b70;
+/***********reffarel code************/
+span.Refarel {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fff;
+    font-family: cursive;
+    margin: auto;
+}
+/***********aoute************/
+div#aoute {
+    margin:50px auto;
+    width: 76%;
+    font-size: 20px;
+    font-family: system-ui;
+}
+.aboute-heade {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+}
+/***********footer************/
+footer {
+    background: crimson;
+    width: 100%;
+}
+.footer{
+    width: 80%;
+    display: flex;
+    margin: auto;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 16% 5px 13%;
+}
+.social-links {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
 }
 span.All-rights {
     color: #fff;
-    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: 900;
 }
-a img {
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
+
+
+
+
+
+
+@media only screen and (max-width:1300px){
+    body::-webkit-scrollbar{
+        width: 0;
+    }
+    nav{
+        height: 56px;
+    }
+    .menu{
+        margin-top: 12px;
+    }
+    .menu .logo a span {
+        font-size: 20px;
+        font-weight: 900;
+    }
+    .subMenu{
+        display: none;
+    }
+    span.easy-logo,span.balance{
+        font-size: 15px;
+    }
+    img#profilePick{
+        width: 45px;
+        height: 45px;
+    }
+    i#onMobileMenusideBar{
+        display: block !important;
+        z-index: 999 !important;
+    }
+
+    /******onMobileMenu******/
+    .onMobileMenu {
+        width: 30%;
+        height: 600px;
+        color: #fff;
+        background: #ff3939;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        position: relative;
+        top: 6%;
+        z-index: 999 !important;
+    }
+    .onMobileMenu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 20px;
+        font-family: system-ui;
+    }
+    .onMobileMenu span {
+        font-size: 20px;
+    }
+    i#onMobileMenusideBarCloase {
+        position: absolute;
+        right: 4px;
+        top: 2px;
+        font-size: 20px;
+    }
+
+    @media only screen and (max-width:420px){
+        .nav{
+            width: 98%;
+        }
+        .menu{
+            flex-direction: column;
+            align-items: center;
+        }
+        span.easy-logo,span.balance{
+            font-size: 12px;
+        }
+        a.SignUp ,a.Login{
+            font-size: 12px;
+        }
+        marquee {
+            font-size: 12px !important;
+            margin-top: 60px !important;
+        }
+
+        div#profileUpdate form ,div#from-widrow form,div#from-Affilate form {
+            width: 126%;
+            background: crimson;
+            position: relative;
+            left: -42px;
+        }
+        div#from-widrow form input{
+            width: 85%;
+        }
+        input#widrow-submit {
+            width: 87% !important;
+        }
+        div#history {
+            width: 117%;
+            margin-left: -40px;
+        }
+        .name-email {
+            font-size: 10px;
+            margin-left: 3px;
+        }
+        .date-time .date,.date-time .time{
+            margin-left: 0 !important;
+            margin-top: 15px;
+            font-size: 10px;
+        }
+        .widrowButton,.amount {
+            padding: 1px;
+            font-size: 10px;
+        }
+        span.Refarel{
+            font-size: 11px;
+            justify-content: space-around;
+            margin: 0 35px;
+        }
+        .profile-update {
+            display: flex;
+            justify-content: space-around;
+        }
+        .profile-1 ,.profile-2{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            font-size: 10px;
+        }
+        .profile-1 label input,.profile-2 label input {
+            margin: 5px;
+        }
+        .profile-1 label ,.profile-2 label{
+            margin: 10px;
+        }
+        input#name,input#uname,input#reffarelCode,input#email,input#number,input#password{
+            padding: 2px;
+            outline: none;
+            font-size: 10px;
+            margin-left: -1px;
+        }
+        img#select-img {
+            width: 100px;
+        }
+        .profile-pick-edite {
+            position: relative;
+            cursor: pointer;
+            height: 105px;
+        }
+        .profile-pick-edite label {
+            position: absolute;
+            cursor: pointer;
+            top: 40%;
+            left: 30%;
+            background: crimson;
+            padding: 2px 4px;
+            color: #fff;
+            font-family: system-ui;
+            border-radius: 3px;
+        }
+        .profile-button {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 45px;
+        }
+        input#Update {
+            padding: 4px 15px;
+            background: green;
+            color: #fff;
+            outline: none;
+            border: 1px solid #fff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input#cancel {
+            color: crimson;
+            padding: 4px 8px;
+            margin-left: 25px;
+            border: 1px solid #fff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input#input-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        .footer{
+            flex-direction: column;
+        }
+        span.All-rights{
+            font-size: 12px;
+        }
+
+        /**********login********/
+        form.signup{
+            width: 70%;
+        }
+        form label{
+            width: 80%;
+        }
+        label input{
+            font-size: 10px;
+        }
+        input#submit{
+            width: 80%;
+            padding: 3px;
+        }
+    }
+    
+}
+/***********walpayper************/
+img#walpayper {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    padding: 105px 0;
+    text-align: center;
+}
+/***********container************/
+.container {
+    width: 80%;
+    margin: auto;
+}
+.social-links a img {
+    width: 45px;
+    height: 45px;
+    border: 1px solid red;
     border-radius: 50%;
 }
-/****recponcive****/
 
-@media (max-width: 1149px) {
-    .container {
-        width: 900px;
-    }
-    .button {
-        margin: 0 187px;
-    }
+.opacity{
+    opacity: 0;
+    transition: all ease .5s;
 }
-
-@media (max-width: 899px){
-    .container {
-        width: 550px;
-    }
-    .slider {
-        text-align: left;
-    }
-    .button {
-        margin: 0 7px;
-    }
-    
-}
-
-@media (max-width: 549px){
-    .container {
-        width: 400px;
-    }
-    .slider {
-        text-align: left;
-    }
-    .button {
-        margin: 0;
-    }
-    
-}
-
-@media (max-width: 499px){
-    .container {
-        width: 350px;
-        margin: 0;
-    }
-    .slider {
-        text-align: left;
-    }
-    .btn {
-        padding: 5px 20px;
-        margin: 15px;
-        font-size: 12px;
-    }
-    
+.onMobileMenu.active{
+    display: none;
 }
