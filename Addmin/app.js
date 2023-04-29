@@ -71,8 +71,3 @@ let category = {
 
   let chartcategory_chart = new ApexCharts(document.querySelector(".category_chart"), category);
   chartcategory_chart.render();
-
-
-
-
-
