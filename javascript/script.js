@@ -1,5 +1,3 @@
-
-
 //Affilate active
 const Affilate_now = document.querySelector(".Affilate-now");
 const from_Affilate = document.querySelector(".from-Affilate");
@@ -29,6 +27,3 @@ history_now.addEventListener('click', e => {
     }
     
 });
-
-
-
