@@ -27,4 +27,3 @@ setInterval (()=>{
 
 // let rand = Math.floor(Math.random('fghfg' * 11111) * 50000);
 // console.log(rand);
-
