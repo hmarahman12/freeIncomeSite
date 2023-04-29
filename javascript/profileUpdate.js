@@ -1,12 +1,10 @@
 //profile
-document.querySelector('img#profile-Img').addEventListener('click',function(){
-    document.querySelector('.profile-viw').classList.toggle('active');
-});
+// document.querySelector('input#input-img').addEventListener('click',function(){
+//     document.querySelector('.profile-viw').classList.toggle('active');
+// });
 
-const select_img = document.querySelector('img#select-img');
-const input_img = document.querySelector('input#input-img');
-
-
+const select_img = document.querySelector('#select-img');
+const input_img = document.querySelector('#input-img');
 //imgs Show mathode
 var files = [];
 var reader = new FileReader();
@@ -24,19 +22,18 @@ select_img.addEventListener('click', function(){
 });
 
 
-
 ////////update data////////
-let profileUpdate = document.querySelector(".profileUpdate");
-document.querySelector(".profile-ditels").addEventListener('click', (e)=>{
-    profileUpdate.classList.toggle("active");
-    e.preventDefault();
-});
+// let profileUpdate = document.querySelector("input#Update");
+// document.querySelector(".profile-ditels").addEventListener('click', (e)=>{
+//     profileUpdate.classList.toggle("active");
+//     e.preventDefault();
+// });
 
-//cancle button
-document.querySelector("input#cancel").addEventListener('click', (e)=>{
-    profileUpdate.classList.remove("active");
-    e.preventDefault();
-});
+// //cancle button
+// document.querySelector("input#cancel").addEventListener('click', (e)=>{
+//     profileUpdate.classList.remove("active");
+//     e.preventDefault();
+// });
 
 //Profile Update methode
 
@@ -65,7 +62,6 @@ document.querySelector("input#Update").addEventListener('click', (e)=>{
     //vew profile && edit profile
     let updateName = document.querySelector("input#name").value;
     let updateUName = document.querySelector("input#uname").value;
-    let updateYoutubeName = document.querySelector("input#youtname").value;
     let updateemail = document.querySelector("input#email").value;
     let updateNumber = document.querySelector("input#number").value;
     let updatePass = document.querySelector("input#password").value;
@@ -75,7 +71,6 @@ document.querySelector("input#Update").addEventListener('click', (e)=>{
         {
         displayName : updateName,
         uName : updateUName,
-        ChannelName : updateYoutubeName,
         email : updateemail,
         phoneNumber : updateNumber,
         password : updatePass,
