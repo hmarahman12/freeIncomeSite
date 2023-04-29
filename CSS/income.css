@@ -1,9 +1,9 @@
 .workAbilble-updatnews {
-    margin: 12px 170px;
     display: flex;
     justify-content: space-between;
     font-size: 35px;
     font-family: monospace;
+    margin: 0 13px;
 }
 .work-box {
     display: flex;
@@ -17,20 +17,18 @@
 
 .incomeItems {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin: auto;
-    width: 85%;
 }
 
 .income-box-1,.income-box-2,.income-box-3,.income-box-4,.income-box-5,.income-box-6,.income-box-7,.income-box-8,.income-box-9,.income-box-10,.income-box-11,.income-box-12 {
     border: 1px solid red;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     position: relative;
     background: #92c392;
     color: #fff;
-    margin: 35px 50px;
+    margin: 50px 42px;
     border-radius: 3px;
 }
 .income-box{
@@ -55,7 +53,7 @@
 #income-box1-Claim-Now-1,#income-box2-Claim-Now-2,#income-box3-Claim-Now-3,#income-box4-Claim-Now-4,#income-box5-Claim-Now-5,#income-box6-Claim-Now-6,#income-box7-Claim-Now-7,#income-box8-Claim-Now-8,#income-box9-Claim-Now-9,#income-box10-Claim-Now-10,#income-box11-Claim-Now-11,#income-box12-Claim-Now-12{
     width: 77px;
     left: 28%;
-    z-index: 0;
+    z-index: -1;
 }
 .displayNone{
     display: none;
@@ -65,13 +63,12 @@
 }
 
 .income-box1-coundownbg,.income-box2-coundownbg,.income-box3-coundownbg,.income-box4-coundownbg,.income-box5-coundownbg,.income-box6-coundownbg,.income-box7-coundownbg,.income-box8-coundownbg,.income-box9-coundownbg,.income-box10-coundownbg,.income-box11-coundownbg,.income-box12-coundownbg{
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     background: black;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
 }
 .income-box1-coundown,.income-box2-coundown,.income-box3-coundown,.income-box4-coundown,.income-box5-coundown,.income-box6-coundown,.income-box7-coundown,.income-box8-coundown,.income-box9-coundown,.income-box10-coundown,.income-box11-coundown,.income-box12-coundown{
     position: absolute;
@@ -93,6 +90,9 @@
 .zindex0{
     z-index: 0 !important;
 }
+.zindex-1{
+    z-index: -1 !important;
+}
 
 @media only screen and (max-width:1000px){
     .income {
@@ -102,60 +102,28 @@
         margin: 18px 19px !important;
     }
     .workAbilble-updatnews{
-        margin: 12px 93px;
+        margin: 12px 20px;
         font-size: 25px;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
+    @media only screen and (max-width:500px){
+        .income-box-1,.income-box-2,.income-box-3,.income-box-4,.income-box-5,.income-box-6,.income-box-7,.income-box-8,.income-box-9,.income-box-10,.income-box-11,.income-box-12{
+            margin: 18px 19px !important;
+        }
+        .workAbilble-updatnews{
+            width: 72%;
+            margin:20px;
+            font-size: 12px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .incomeItems{
+            width: 100%;
+            justify-content: flex-start;
+            flex-direction: column;
+        }
+    }
 }
 
-@media only screen and (max-width:500px){
-    .income {
-        width: 40%;
-    }
-    .income-box-1,.income-box-2,.income-box-3,.income-box-4,.income-box-5,.income-box-6,.income-box-7,.income-box-8,.income-box-9,.income-box-10,.income-box-11,.income-box-12{
-        margin: 18px 19px !important;
-    }
-    .workAbilble-updatnews{
-        margin: 12px 41px;
-        font-size: 15px;
-        flex-direction: column-reverse;
-        align-items: flex-start;
-    }
-    .updateNews{
-        margin-right: 183px;
-    }
-    .incomeItems{
-        width: 100%;
-        justify-content: flex-start;
-        flex-direction: column;
-    }
-}
-@media only screen and (max-width:270px){
-    .income {
-        width: 100%;
-    }
-    .box1-incomeItems,.box2-incomeItems{
-        width: 97%;
-    }
-    .income-box-1,.income-box-2,.income-box-3,.income-box-4,.income-box-5,.income-box-6,.income-box-7,.income-box-8,.income-box-9,.income-box-10,.income-box-11,.income-box-12{
-        margin: 18px 19px !important;
-    }
-    .workAbilble-updatnews{
-        margin: 12px 9px;
-        font-size: 20px;
-        flex-direction: column;
-    }
-    .updateNews{
-        margin-right: 183px;
-    }
-    .box1-incomeItems,.box2-incomeItems{
-        width: 94%;
-        justify-content: flex-start;
-    }
-    .incomeItems{
-        width: 94%;
-        justify-content: flex-start;
-        flex-direction: column;
-    }
-}
