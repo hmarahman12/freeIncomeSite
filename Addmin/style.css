@@ -337,6 +337,7 @@ button.dark {
 .name{
     width: 95%;
     height: 50px;
+    font-size: 12px;
     padding: 0 16px;
     background: #fff;
     border-bottom: 1px solid #f1f1f1;
@@ -375,9 +376,9 @@ button.dark {
 .latest-order .chang:hover span{
     color: #fff;
 }
-.latest-order .chang span{
+/* .latest-order .chang span{
     width: 100px;
-}
+} */
 div.head {
     background: #248af4;
 }
@@ -455,14 +456,15 @@ input.pending, input.rijected ,input.paid{
     color: #fff;
     cursor: pointer;
     outline: none;
+    font-size: 12px;
     border-radius: 3px;
-    padding: 6px 10px;
-    margin-left: 5px;
+    padding: 2px;
+    margin-left: 3px;
     border: 1px solid #181818;
 }
 input.paid {
     background: green;
-    padding: 6px 40px;
+    padding: 3px;
 }
 input.pending{
     background: rgb(223, 121, 37);
@@ -470,7 +472,11 @@ input.pending{
 input.rijected{
     background: red;
 }
-
+.widrowsTest {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
 
 
 /***theem chang***/
