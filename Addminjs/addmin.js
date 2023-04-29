@@ -50,11 +50,11 @@ function Addmin_Requst_Accept(){
     });
 
     if(localStorageuName === 'AddminFreelancer'){
-        console.log("Yessssss");
+        // console.log("Yessssss");
         document.querySelector('b.admin-request').classList.add('display-block')
     }else{
         document.querySelector('b.Alladmin-request').classList.add('display-block')
-        console.log('Nooooo');
+        // console.log('Nooooo');
     }
     
 
@@ -66,7 +66,7 @@ function Addmin_Requst_Accept(){
     for(Admin_Requests in Admin_Request){
         let Admin_RequestsList = Admin_Request[Admin_Requests];
         if(Admin_RequestsList.admin === 'Request'){
-            console.log('Request');
+            // console.log('Request');
             document.querySelector('p#admin-request-notifi').classList.add('display-block');
         }
     }
@@ -97,32 +97,105 @@ db.ref('users/')
     var users = snapshot.val();
     var usersCount = Object.keys(users).length;
     document.querySelector('b.totalUsers').innerHTML = usersCount;
+    allUsersList.innerHTML = '';
     //users List
     for(userse in users){
         let usersList = users[userse];
 
-        let allUsers = `<div class="allUsersProfile">
+        allUsersList.innerHTML += `<div class="allUsersProfile">
         <img id="img" src="${usersList.photoURL}" alt="userImage">
         <div class="name-email"">
             <div class="names">${usersList.uName}</div>
             <div class="email">${usersList.email}</div>
+        </div>
+        <div class="UserIp">
+        <span class="UserIPname">IP :</span>
+        <span class="UIP">${usersList.ip}</span>
+        </div>
+        <div class="dvice">
+            <span class="UserDvice">Dvice : </span>
+            <span class="User-Dvice"><i class="${usersList.DviceWidth} fas"></i></span>
         </div>
         <div class="status-usersmass">
             <span class="span">Balance</span>
             <span class="Balance"">${usersList.Balance}</span>
         </div>
         </div>`;
-        allUsersList.innerHTML += allUsers;
+        function dviceActiveAddmin(){
+            if(usersList.DviceWidth){
+                document.querySelectorAll('i.mobile').forEach((e)=>{
+                    e.classList.add('fa-mobile');
+                });
+                document.querySelectorAll('i.tablet').forEach((e)=>{
+                    e.classList.add('fa-laptop');
+                });
+                document.querySelectorAll('i.desktop').forEach((e)=>{
+                    e.classList.add('fa-desktop');
+                })
+            }
+        }dviceActiveAddmin()
     }
 
 });
 
-
+//all users list Active
+let allUsersListActive = document.querySelector('.allUsersActive');
 db.ref('Addmin/' + 'LoginAddmin/')
     .on('value', function(snapshot){
-    var usersStutase = snapshot.val();
-    var stutaseCount = Object.keys(usersStutase).length;
+    var activeUsersList = snapshot.val();
+    var stutaseCount = Object.keys(activeUsersList).length;
     document.querySelector('b.userActive').innerHTML = stutaseCount;
+    allUsersListActive.innerHTML = '';
+    for(activeUsersLists in activeUsersList){
+        let usersActiveList = activeUsersList[activeUsersLists];
+
+        allUsersListActive.innerHTML += `<div class="allUsersProfile">
+        <img id="img" src="${usersActiveList.profilePick}" alt="userImage">
+        <div class="name-email"">
+            <div class="names">${usersActiveList.userName}</div>
+            <div class="email">${usersActiveList.userEmail}</div>
+        </div>
+        <div class="UserIp">
+            <span class="UserIPname">IP :</span>
+            <span class="UIP">${usersActiveList.ip_address}</span>
+        </div>
+        <div class="dvice">
+            <span class="UserDvice"></span>
+            <span class="User-Dvice"><i class="${usersActiveList.dviceActive} fas "></i></span>
+        </div>
+        <span class="active-cercle1"></span>
+        <div class="status-usersmass">
+            <span class="span">Balance</span>
+            <span class="Balance"">${usersActiveList.Balance}</span>
+        </div>
+        </div>`;
+
+        function dviceActiveAddmin(){
+            if(usersActiveList.DviceWidth){
+                document.querySelectorAll('i.mobile').forEach((e)=>{
+                    e.classList.add('fa-mobile');
+                });
+                document.querySelectorAll('i.tablet').forEach((e)=>{
+                    e.classList.add('fa-laptop');
+                });
+                document.querySelectorAll('i.desktop').forEach((e)=>{
+                    e.classList.add('fa-desktop');
+                })
+            }
+        }dviceActiveAddmin()
+
+        if(usersActiveList.activeStatus == 'active'){
+            document.querySelectorAll('span.active-cercle1').forEach((e)=>{
+                e.classList.add('active-cercle2');
+            })
+        }else if(usersActiveList.activeStatus == 'No-active'){
+            document.querySelectorAll('span.active-cercle1').forEach((e)=>{
+                e.classList.remove('active-cercle2');
+            })
+        }
+    }
+    
+
 });
 
 
@@ -133,46 +206,181 @@ db.ref('Addmin/' + 'Widrows')
 
 });
 
-
-
-
-
-
-//widrow history
+//Users widrow history
 let widrowHistoryBoday = document.querySelector("div#addmin-withrow-ditels");
 db.ref('Addmin/' + 'AddminWidrow/')
     .on('value', function(snapshot){
     var widrowhistory = snapshot.val();
+    let serial = 1;
+    widrowHistoryBoday.innerHTML = '';
     for(widrowhistorys in widrowhistory){
-        // console.log(widrowhistory[widrowhistorys]);
         let widrowInformation = widrowhistory[widrowhistorys];
-        // console.log(widrowInformation);
-        localStorage.setItem('widrowStatuse',widrowInformation.widrowStatuse);
 
-        let history = `
-            <div class="name chang" id="name">
-                <span class="sL">#001771</span>
+        widrowHistoryBoday.innerHTML +=`
+            <div class="name chang" id="allName" data-itemid="${serial}">
+                <span class="sL">${serial}</span>
+                <input class='usersNameInput' id="paidUname" value="${widrowInformation.widrowUserName}" data-itemid="${serial}" hidden/>
                 <span class="username">${widrowInformation.widrowUserName}</span>
-                    <span class="date">${widrowInformation.widrowDate}</span>
-                    <span class="amount dd">Tk : ${widrowInformation.widrowAmount}</span>
+                <input id="paidnumber" value="${widrowInformation.widrowNumber}" data-itemid="${serial}" hidden/>
+                <span class="number">${widrowInformation.widrowNumber}</span>
+                <input id="paidpmMethod" value="${widrowInformation.paymentMethod}" data-itemid="${serial}" hidden/>
+                <span class="pmMethod">${widrowInformation.paymentMethod}</span>
+                <input id="paidDate" value="${widrowInformation.widrowDate}" data-itemid="${serial}" hidden/>
+                <span class="date">${widrowInformation.widrowDate}</span>
+                <input id="paidamount" value="${widrowInformation.widrowAmount}" data-itemid="${serial}" hidden/>
+                <span class="amount dd">Tk : ${widrowInformation.widrowAmount}</span>
+                <input id="APIKay" value="${widrowhistorys}" data-itemid="${serial}" hidden/>
                 <div class="button">
-                    <input type="button" class="paid" value="Paid">
-                    <input type="button" class="rijected" value="Rijected">
+                    <input type="button" class="paid" id="tkPaid" value="Paid">
+                    <input type="button" class="rijected" id="rijected" value="Rijected">
                 </div>
-            </div>
-            `;
-            
-        widrowHistoryBoday.innerHTML += history;
-
-        //paid pending rejected statuse
-        document.querySelectorAll(".hstProfile").forEach((e)=>{
-            let allButton = e.querySelector(".widrowButton");
-                let newId = (allButton.getAttribute("data-itemid"));
-                allButton.setAttribute('id',newId);
-        })
+            </div>`;
+        serial++;
         
+        //paid amount is ready
+        function paidAmountIsReady(){
+            let AllnameButton = document.querySelectorAll('#allName');
+                AllnameButton.forEach((singleName)=>{
+                    singleName.querySelector("#tkPaid").addEventListener('click',function(){
+                        function amountIspaidRady(){
+                            let paidUName = singleName.querySelector("#paidUname").value;
+                            let paidNumber = singleName.querySelector("#paidnumber").value;
+                            let paidPM = singleName.querySelector("#paidpmMethod").value;
+                            let paidDate = singleName.querySelector("#paidDate").value;
+                            let paidAmount = singleName.querySelector("#paidamount").value;
+                            //widrow update function//////
+                            function widrowUpdateList(){
+                                let allnumber = singleName.querySelector("input#APIKay").value;
+                                db.ref('Addmin/' + 'AddminWidrow/' + allnumber).remove()
+                                
+                            }widrowUpdateList()
+                            //widrow update users function////
+                            function widrowUpdateUsersFunction(){
+                                db.ref('Addmin/' + 'Widrow/' + paidUName)
+                                .on('value', function(snapshot){
+                                var widrowpaidhistory = snapshot.val();
+                                document.querySelector('div#addmin-withrow-ditels-paid-reject').innerHTML = '';
+                                let serial = 1;
+                                    for(widrowpaidhistorys in widrowpaidhistory){
+                                        document.querySelector('div#addmin-withrow-ditels-paid-reject').innerHTML +=`<div class="widrowsTest">
+                                            <span class="sL">${serial}</span>
+                                            <input id="APIKays" value="${widrowpaidhistorys}" data-itemid="${serial}" readonly />
+                                            <div class="button">
+                                                <input type="button" class="paid" id="tkPaid2" value="Paid">
+                                            </div>
+                                        </div>`;
+                                        serial++;
+
+                                        //widrow update function//////
+                                        function widrowUpdateListt(){
+                                            let widrowsTest1 = document.querySelectorAll('.widrowsTest');
+                                                widrowsTest1.forEach((singlewidrows) => {
+                                                    singlewidrows.querySelector('#tkPaid2').addEventListener('click',function(){
+                                                        let allAPIKay = singlewidrows.querySelector("input#APIKays").value;
+                                                        db.ref('Addmin/' + 'Widrow/' + paidUName + '/' + allAPIKay).update({
+                                                        widrowStatuse : 'Paid'
+                                                        });
+                                                    })
+                                                    
+                                                })
+                                            
+                                        }widrowUpdateListt();
+
+                                    }
+                                })
+
+                            }widrowUpdateUsersFunction()
+                            //widrow paid function//////
+                            db.ref('Addmin/' + 'AddminWidrowPaid/').push({
+                                UName : paidUName,
+                                Number : paidNumber,
+                                paymentMethod : paidPM,
+                                Amount : paidAmount,
+                                Date : paidDate
+                            })
+
+                        }amountIspaidRady();
+                    })
+
+
+                    singleName.querySelector("#rijected").addEventListener('click',function(){
+                        function amountIspaidRady2(){
+                            let paidUName = singleName.querySelector("#paidUname").value;
+                            //widrow update function//////
+                            function widrowUpdateList(){
+                                let allnumber = singleName.querySelector("input#APIKay").value;
+                                db.ref('Addmin/' + 'AddminWidrow/' + allnumber).remove()
+                                
+                            }widrowUpdateList()
+                            //widrow update users function////
+                            function widrowUpdateUsersFunction(){
+                                db.ref('Addmin/' + 'Widrow/' + paidUName)
+                                .on('value', function(snapshot){
+                                var widrowpaidhistory = snapshot.val();
+                                document.querySelector('div#addmin-withrow-ditels-paid-reject').innerHTML = '';
+                                let serial = 1;
+                                    for(widrowpaidhistorys in widrowpaidhistory){
+                                        document.querySelector('div#addmin-withrow-ditels-paid-reject').innerHTML +=`<div class="widrowsTest">
+                                            <span class="sL">${serial}</span>
+                                            <input id="APIKays" value="${widrowpaidhistorys}" data-itemid="${serial}" readonly />
+                                            <div class="button">
+                                            <input type="button" class="rijected" id="rijected2" value="Rijected">
+                                            </div>
+                                        </div>`;
+                                        serial++;
+
+                                        //widrow update function//////
+                                        function widrowUpdateListt(){
+                                            let widrowsTest1 = document.querySelectorAll('.widrowsTest');
+                                                widrowsTest1.forEach((singlewidrows) => {
+                                                    singlewidrows.querySelector('#rijected2').addEventListener('click',function(){
+                                                        let allAPIKay = singlewidrows.querySelector("input#APIKays").value;
+                                                        db.ref('Addmin/' + 'Widrow/' + paidUName + '/' + allAPIKay).update({
+                                                        widrowStatuse : 'Rejected'
+                                                        });
+                                                    })
+                                                    
+                                                })
+                                            
+                                        }widrowUpdateListt();
+                                    }
+                                })
+
+                            }widrowUpdateUsersFunction()
+
+                        }amountIspaidRady2();
+                    })
+                });
+        }paidAmountIsReady();
+
     }
 });
+//widrow history Paid
+let widrowHistoryPaidBoday = document.querySelector("div#addmin-withrow-ditels-paid");
+db.ref('Addmin/' + 'AddminWidrowPaid/')
+    .on('value', function(snapshot){
+    var widrowhistoryPaid = snapshot.val();
+    let serial = 1;
+    widrowHistoryPaidBoday.innerHTML = '';
+    for(widrowhistoryPaids in widrowhistoryPaid){
+        let widrowhistoryPaidInfo = widrowhistoryPaid[widrowhistoryPaids];
+
+        widrowHistoryPaidBoday.innerHTML +=`
+            <div class="name chang" id="name">
+                <span class="sL">${serial}</span>
+                <span class="username">${widrowhistoryPaidInfo.UName}</span>
+                <span class="number">${widrowhistoryPaidInfo.Number}</span>
+                <span class="method">${widrowhistoryPaidInfo.paymentMethod}</span>
+                <span class="date">${widrowhistoryPaidInfo.Date}</span>
+                <span class="amount d">${widrowhistoryPaidInfo.Amount}</span>
+                <div class="button">
+                    <input type="button" class="paid" value="Paid">
+                </div>
+            </div>`;
+        serial++;
+    }
+});
+
 
 //Addmin login chack
 function ActiveAddmin(){
@@ -190,14 +398,13 @@ function InActiveAddmin(){
     )
 }
 
-
 //onAuthStateChanged
 auth.onAuthStateChanged(function(user){
     if(user){
         loginUser();
         ActiveAddmin();
     }else{
-        console.log("No Active Addmin ");
+        // console.log("No Active Addmin ");
         window.location = "/AddminLogin";
     }
 })
